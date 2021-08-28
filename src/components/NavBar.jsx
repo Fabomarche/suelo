@@ -1,7 +1,39 @@
 import React from 'react'
+import { Navbar , Container, Nav, NavDropdown} from 'react-bootstrap'
 import logoSuelo from '../assets/images/Logo_Suelo.jpg'
 
-let stylesNav = {
+const NavBar = () => {
+    return(
+        <>
+            <Navbar className="p-0" bg="dark" variant="dark" expand="lg" sticky="top">
+            <Container className="ps-0">
+                <Navbar.Brand href="#home" className="p-0">
+                    <img 
+
+                        src={logoSuelo} 
+                        width="75"
+                        height="75"
+                        className="d-inline-block align-top" />
+                </Navbar.Brand>
+                <Navbar.Toggle aria-controls="basic-navbar-nav" />
+                <Navbar.Collapse id="basic-navbar-nav" >
+                <Nav className="me-auto">
+                    <Nav.Link href="#home">Nosotros</Nav.Link>
+                    <Nav.Link href="#link">Mercadín</Nav.Link>
+                    <NavDropdown title="Productos" id="basic-nav-dropdown">
+                    <NavDropdown.Item href="#action/3.1">Orgánicos</NavDropdown.Item>
+                    <NavDropdown.Item href="#action/3.2">Preparados</NavDropdown.Item>
+                    <NavDropdown.Item href="#action/3.3">Envasados</NavDropdown.Item>
+                    </NavDropdown>
+                </Nav>
+                </Navbar.Collapse>
+            </Container>
+            </Navbar>
+        </>
+    )
+}
+
+/* let stylesNav = {
     display: 'flex',
     backgroundColor: '#1D1D1B',
     width: '100%',
@@ -39,6 +71,6 @@ const NavBar = () => {
             </ul>
         </div>
     )
-}
+} */
 
 export default NavBar
