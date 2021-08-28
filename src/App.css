@@ -1,0 +1,13 @@
+@font-face {
+  font-family: LeHavreRough_Primary_400;
+  src: url("./assets/fonts/LeHavreRough_Primary_400.otf");
+}
+
+@font-face {
+  font-family: Butler_Regular_Stencil;
+  src: url("./assets/fonts/Butler_Regular_Stencil.otf");
+}
+
+.App {
+  font-family: LeHavreRough_Primary_400;
+}
