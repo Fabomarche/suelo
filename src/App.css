@@ -8,6 +8,11 @@
   src: url("./assets/fonts/Butler_Regular_Stencil.otf");
 }
 
+* {
+  margin: 0;
+  padding: 0;
+}
+
 .App {
   font-family: LeHavreRough_Primary_400;
 }
