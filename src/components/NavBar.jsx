@@ -1,12 +1,13 @@
 import React from 'react'
 import { Navbar , Container, Nav, NavDropdown, Form, Button} from 'react-bootstrap'
 import logoSuelo from '../assets/images/Logo_Suelo.jpg'
+import cart from '../assets/svg/shopping-cart.svg'
 
 const NavBar = () => {
     return(
         <>
-            <Navbar className="p-0 " bg="dark" variant="dark" expand="lg" sticky="top">
-                <Container fluid className="ps-0">
+            <Navbar className="p-0" bg="primary" variant="secondary" expand="lg" sticky="top">
+                <Container fluid className="ps-0 text-secondary">
 
                     <Navbar.Brand href="#home" className="p-0">
                         <img 
@@ -16,17 +17,17 @@ const NavBar = () => {
                             className="d-inline-block align-top" />
                     </Navbar.Brand>
 
-                    <Navbar.Toggle aria-controls="basic-navbar-nav"/>
+                    <Navbar.Toggle aria-controls="basic-navbar-nav" />
                     
                     <Navbar.Collapse id="basic-navbar-nav" className="justify-content-end">
-                        <Nav className="me-5">
-                            <Nav.Link href="#home">Nosotros</Nav.Link>
-                            <NavDropdown menuVariant="dark" title="Productos" id="basic-nav-dropdown" className="dark">
-                            <NavDropdown.Item href="#action/3.1">Orgánicos</NavDropdown.Item>
-                            <NavDropdown.Item href="#action/3.2">Preparados</NavDropdown.Item>
-                            <NavDropdown.Item href="#action/3.3">Envasados</NavDropdown.Item>
-                            </NavDropdown>
-                            <Nav.Link href="#cart">Carrito</Nav.Link>
+                        <Nav className="me-3" >
+                            <Nav.Link className="text-secondary" href="#home">Nosotros</Nav.Link>
+
+                            <Nav.Link className="text-secondary" href="#home">E-commerce</Nav.Link>   
+
+                            <Nav.Link href="#cart" className="text-secondary"> 
+                                carrito
+                            </Nav.Link>
                         </Nav>
                         {/* <Form className="d-flex">
                             <Form.Group className="mb-3 me-2" controlId="formBasicEmail">

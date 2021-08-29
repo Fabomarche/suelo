@@ -1,5 +1,5 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
-import './App.css';
+import './App.scss';
 import NavBar from './components/NavBar'
 import Intro from './components/Intro'
 import Carousel_intro from './components/Carousel_intro';
