@@ -4,8 +4,9 @@ import Container from 'react-bootstrap/Container'
 import Nav from 'react-bootstrap/Nav'
 import Form from 'react-bootstrap/Form'
 
-import logoSuelo from '../assets/images/Logo_Suelo.jpg'
+import logoSuelo from '../../assets/images/Logo_Suelo.jpg'
 import CartWidget from './CartWidget'
+import UserWidget from './UserWidget'
 
 const NavBar = () => {
     return(
@@ -13,15 +14,15 @@ const NavBar = () => {
             <Navbar className="p-0" bg="primary" variant="dark" expand="lg" sticky="top">
                 <Container className="ps-0 text-secondary">
 
-                    <Navbar.Brand href="#home" className="col-2 d-flex justify-content-center p-0 m-0">
-                        <img 
+                    <Navbar.Brand href="#home" className="col-4 col-md-2 d-flex justify-content-center p-0 m-0">
+                        <img id="logo-header"
                             src={logoSuelo} 
                             width="75"
                             height="75"
                             className="d-inline-block align-top" />
                     </Navbar.Brand>
 
-                        <Container className="col-8 d-flex justify-content-center">
+                        <Container className="col-6 order-last order-md-0 d-flex justify-content-center mb-md-0 mb-2">
                         <Form className="buscar flex-grow-1" >
                             <Form.Group >
                                 <Form.Control className="text-center" type="search" placeholder="¿Qué querés comer hoy?"/>
@@ -29,20 +30,24 @@ const NavBar = () => {
                         </Form>
                         </Container>
 
+                    <CartWidget />
+                    <UserWidget />
+                    
+                
 
-                  {/*   <Navbar.Toggle aria-controls="basic-navbar-nav" className="text-secondary bg-primary"/>    
+                   {/*  <Navbar.Toggle aria-controls="basic-navbar-nav" className="text-secondary bg-primary"/>    
 
-                    <Navbar.Collapse id="basic-navbar-nav" className="">
+                    <Navbar.Collapse id="basic-navbar-nav col-2" className="">
                         
-                        <Nav className="ms-auto w-50" >
+                        <Nav className="ms-auto" >
                             <Nav.Link className="text-secondary" href="#home">Nosotros</Nav.Link>
 
                             <Nav.Link className="text-secondary" href="#home">E-commerce</Nav.Link>
                         </Nav>
 
-                    </Navbar.Collapse> */}
+                    </Navbar.Collapse>
 
-                    <CartWidget />
+                     */}
 
                 </Container>
             </Navbar>

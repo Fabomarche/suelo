@@ -1,7 +1,7 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.scss';
-import NavBar from './components/NavBar'
-import ItemListContainer from './components/ItemListContainer';
+import NavBar from './components/NavBar/NavBar'
+import ItemListContainer from './components//NavBar/ItemListContainer';
 /* import Intro from './components/Intro'
 import Carousel_intro from './components/Carousel_intro'; */
 
