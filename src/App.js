@@ -1,8 +1,9 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.scss';
 import NavBar from './components/NavBar'
-import Intro from './components/Intro'
-import Carousel_intro from './components/Carousel_intro';
+import ItemListContainer from './components/ItemListContainer';
+/* import Intro from './components/Intro'
+import Carousel_intro from './components/Carousel_intro'; */
 
 function App() {
   return (
@@ -10,10 +11,11 @@ function App() {
       <header>
         <NavBar />
       </header>
-      <main className="container justify-content-center">
+      <ItemListContainer mensaje="Acá va a estar el catálogo"/>
+     {/*  <main className="container justify-content-center">
         <Intro />
         <Carousel_intro />
-      </main>    
+      </main>     */}
     </div>
   );
 }

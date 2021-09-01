@@ -1,15 +1,19 @@
 import React from 'react'
-import { Navbar , Container, Nav, NavDropdown, Form, Button} from 'react-bootstrap'
+import Navbar from 'react-bootstrap/Navbar'
+import Container from 'react-bootstrap/Container'
+import Nav from 'react-bootstrap/Nav'
+import Form from 'react-bootstrap/Form'
+
 import logoSuelo from '../assets/images/Logo_Suelo.jpg'
-import cart from '../assets/svg/shopping-cart.svg'
+import CartWidget from './CartWidget'
 
 const NavBar = () => {
     return(
         <>
-            <Navbar className="p-0" bg="primary" variant="secondary" expand="lg" sticky="top">
-                <Container fluid className="ps-0 text-secondary">
+            <Navbar className="p-0" bg="primary" variant="dark" expand="lg" sticky="top">
+                <Container className="ps-0 text-secondary">
 
-                    <Navbar.Brand href="#home" className="p-0">
+                    <Navbar.Brand href="#home" className="p-0 m-0">
                         <img 
                             src={logoSuelo} 
                             width="75"
@@ -17,34 +21,29 @@ const NavBar = () => {
                             className="d-inline-block align-top" />
                     </Navbar.Brand>
 
-                    <Navbar.Toggle aria-controls="basic-navbar-nav" />
-                    
-                    <Navbar.Collapse id="basic-navbar-nav" className="justify-content-end">
-                        <Nav className="me-3" >
+                        <Container className="d-flex justify-content-center">
+                        <Form className="w-50" >
+                            <Form.Group >
+                                <Form.Control className="text-center" type="search" placeholder="¿Qué querés comer hoy?"/>
+                            </Form.Group>
+                        </Form>
+                        </Container>
+
+
+                  {/*   <Navbar.Toggle aria-controls="basic-navbar-nav" className="text-secondary bg-primary"/>    
+
+                    <Navbar.Collapse id="basic-navbar-nav" className="">
+                        
+                        <Nav className="ms-auto w-50" >
                             <Nav.Link className="text-secondary" href="#home">Nosotros</Nav.Link>
 
-                            <Nav.Link className="text-secondary" href="#home">E-commerce</Nav.Link>   
-
-                            <Nav.Link href="#cart" className="text-secondary"> 
-                                carrito
-                            </Nav.Link>
+                            <Nav.Link className="text-secondary" href="#home">E-commerce</Nav.Link>
                         </Nav>
-                        {/* <Form className="d-flex">
-                            <Form.Group className="mb-3 me-2" controlId="formBasicEmail">
-                                <Form.Label>Email address</Form.Label>
-                                <Form.Control type="email" placeholder="Enter email" />
-                            </Form.Group>
 
-                            <Form.Group className="mb-3 me-2" controlId="formBasicPassword">
-                                <Form.Label>Password</Form.Label>
-                                <Form.Control type="password" placeholder="Password" />
-                            </Form.Group>
-                            
-                            <Button h-50 variant="primary" type="submit">
-                                Submit
-                            </Button>
-                        </Form> */}
-                    </Navbar.Collapse>
+                    </Navbar.Collapse> */}
+
+                    <CartWidget />
+
                 </Container>
             </Navbar>
         </>
