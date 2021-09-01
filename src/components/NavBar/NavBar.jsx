@@ -14,7 +14,7 @@ const NavBar = () => {
             <Navbar className="p-0" bg="primary" variant="dark" expand="lg" sticky="top">
                 <Container className="ps-0 text-secondary">
 
-                    <Navbar.Brand href="#home" className="col-4 col-md-2 d-flex justify-content-center p-0 m-0">
+                    <Navbar.Brand href="#home" className="col-4 col-md-2 d-flex justify-content-center ms-4 ">
                         <img id="logo-header"
                             src={logoSuelo} 
                             width="75"
@@ -22,7 +22,7 @@ const NavBar = () => {
                             className="d-inline-block align-top" />
                     </Navbar.Brand>
 
-                        <Container className="col-6 order-last order-md-0 d-flex justify-content-center mb-md-0 mb-2">
+                        <Container className="col-6 order-last order-md-0 d-flex justify-content-center mb-md-0 mb-2 ">
                         <Form className="buscar flex-grow-1" >
                             <Form.Group >
                                 <Form.Control className="text-center" type="search" placeholder="¿Qué querés comer hoy?"/>
