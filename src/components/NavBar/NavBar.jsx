@@ -11,7 +11,7 @@ import UserWidget from './UserWidget'
 const NavBar = () => {
     return(
         <>
-            <Navbar className="p-0" bg="primary" variant="dark" expand="lg" sticky="top">
+            <Navbar className="p-0 shadow-lg" bg="primary" variant="dark" expand="lg" sticky="top">
                 <Container className="ps-0 text-secondary">
 
                     <Navbar.Brand href="#home" className="col-4 col-md-2 d-flex justify-content-center ms-4 ">
@@ -22,10 +22,10 @@ const NavBar = () => {
                             className="d-inline-block align-top" />
                     </Navbar.Brand>
 
-                        <Container className="col-6 order-last order-md-0 d-flex justify-content-center mb-md-0 mb-2 ">
-                        <Form className="buscar flex-grow-1" >
+                        <Container className="col-6 order-last order-md-0 d-flex justify-content-center mb-md-0 mb-2">
+                        <Form className="buscar flex-grow-1 shadow" >
                             <Form.Group >
-                                <Form.Control className="text-center" type="search" placeholder="¿Qué querés comer hoy?"/>
+                                <Form.Control className="text-center" type="search" placeholder="¿Qué comés hoy?"/>
                             </Form.Group>
                         </Form>
                         </Container>

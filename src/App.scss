@@ -4,8 +4,8 @@
 }
 
 @font-face {
-  font-family: Butler_Regular_Stencil;
-  src: url("./assets/fonts/Butler_Regular_Stencil.otf");
+  font-family: Butler_Medium_Stencil;
+  src: url("./assets/fonts/Butler_Medium_Stencil.otf");
 }
 
 .App {
@@ -25,7 +25,8 @@ $secondary: #d4d3cd;
 
 .texto-iconos {
   font-size: 1rem;
-  font-family: Butler_Regular_Stencil;
+  font-family: Butler_Medium_Stencil;
+  text-shadow: 0px 2px 10px black;
 }
 /*------------Media Queries------------------------------------------*/
 

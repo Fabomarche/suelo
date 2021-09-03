@@ -2,6 +2,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.scss';
 import NavBar from './components/NavBar/NavBar'
 import ItemListContainer from './components//NavBar/ItemListContainer';
+import ItemCount from './components/ItemCount'
 /* import Intro from './components/Intro'
 import Carousel_intro from './components/Carousel_intro'; */
 
@@ -11,11 +12,13 @@ function App() {
       <header>
         <NavBar />
       </header>
-      <ItemListContainer mensaje="Acá va a estar el catálogo"/>
-     {/*  <main className="container justify-content-center">
-        <Intro />
-        <Carousel_intro />
-      </main>     */}
+      <ItemListContainer mensaje={<ItemCount stock={6} initial={1} />}/>
+      <main className="container justify-content-center">
+      
+    
+       {/*  <Intro />
+        <Carousel_intro /> */}
+      </main>    
     </div>
   );
 }
