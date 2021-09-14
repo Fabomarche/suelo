@@ -54,6 +54,12 @@ $secondary: #d4d3cd;
   transform: scale(1.2);
 }
 
+.detalles-texto {
+  font-family: Butler_Medium_Stencil;
+  font-size: 1.15rem;
+  font-weight: bolder;
+}
+
 /*------------Media Queries------------------------------------------*/
 
 @media (max-width: 576px) {
