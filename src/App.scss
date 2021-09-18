@@ -8,14 +8,15 @@
   src: url("./assets/fonts/Butler_Medium_Stencil.otf");
 }
 
-.App {
-  font-family: LeHavreRough_Primary_400;
-}
-
 $dark: #1d1d1b;
 $primary: #29536a;
 $danger: #84171f;
 $secondary: #d4d3cd;
+
+.App {
+  font-family: LeHavreRough_Primary_400;
+  background-color: $secondary;
+}
 
 .buscar {
   input {

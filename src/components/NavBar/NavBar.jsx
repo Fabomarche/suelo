@@ -3,24 +3,29 @@ import Navbar from 'react-bootstrap/Navbar'
 import Container from 'react-bootstrap/Container'
 import Nav from 'react-bootstrap/Nav'
 import Form from 'react-bootstrap/Form'
+import Row from 'react-bootstrap/Row'
 
 import logoSuelo from '../../assets/images/Logo_Suelo.jpg'
 import CartWidget from './CartWidget'
 import UserWidget from './UserWidget'
 
+import { Link as RouterLink } from "react-router-dom"
+
 const NavBar = () => {
     return(
         <>
-            <Navbar className="p-0 shadow-lg" bg="primary" variant="dark" expand="lg" sticky="top">
+            <Navbar className="d-block p-0 shadow-lg" bg="primary" variant="dark" expand="lg" sticky="top">
                 <Container className="ps-0 text-secondary">
-
-                    <Navbar.Brand href="#home" className="col-4 col-md-2 d-flex justify-content-center ms-4 ">
-                        <img id="logo-header"
-                            src={logoSuelo} 
-                            width="75"
-                            height="75"
-                            className="d-inline-block align-top" />
-                    </Navbar.Brand>
+           
+                    <RouterLink exact to='/'>
+                        <Navbar.Brand className="col-4 col-md-2 d-flex justify-content-center ms-4 ">
+                            <img id="logo-header"
+                                src={logoSuelo} 
+                                width="75"
+                                height="75"
+                                className="d-inline-block align-top" />
+                        </Navbar.Brand>
+                    </RouterLink>
 
                         <Container className="col-6 order-last order-md-0 d-flex justify-content-center mb-md-0 mb-2">
                         <Form className="buscar flex-grow-1 shadow" >
@@ -29,26 +34,31 @@ const NavBar = () => {
                             </Form.Group>
                         </Form>
                         </Container>
-
-                    <CartWidget />
+                    
+                    <RouterLink exact to="/cart">
+                        <CartWidget />
+                    </RouterLink>
+                    
                     <UserWidget />
                     
                 
 
-                   {/*  <Navbar.Toggle aria-controls="basic-navbar-nav" className="text-secondary bg-primary"/>    
-
+                    <Navbar.Toggle aria-controls="basic-navbar-nav" className="text-secondary bg-primary"/>    
+          
+                
+              
                     <Navbar.Collapse id="basic-navbar-nav col-2" className="">
                         
-                        <Nav className="ms-auto" >
-                            <Nav.Link className="text-secondary" href="#home">Nosotros</Nav.Link>
-
-                            <Nav.Link className="text-secondary" href="#home">E-commerce</Nav.Link>
-                        </Nav>
+                        
 
                     </Navbar.Collapse>
-
-                     */}
-
+          
+                </Container>
+                <Container className="justify-content-center">
+                     <Nav> 
+                        <Nav.Link><RouterLink to={`/categoria/frutas`} className="text-secondary text-decoration-none">Frutas</RouterLink></Nav.Link>
+                        <Nav.Link><RouterLink to={`/categoria/verduras`} className="text-secondary text-decoration-none">Verduras</RouterLink></Nav.Link>
+                    </Nav>
                 </Container>
             </Navbar>
         </>

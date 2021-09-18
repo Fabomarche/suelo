@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import { useParams } from 'react-router-dom'
 
 import { productsFetch } from '../utils/mock'
 import ItemList from '../Products/ItemList'
@@ -7,24 +8,37 @@ import Card from 'react-bootstrap/Card'
 import Container from 'react-bootstrap/Container'
 import Placeholder from 'react-bootstrap/Placeholder'
 import Spinner from 'react-bootstrap/Spinner'
+/* import { isCompositeComponent } from 'react-dom/test-utils' */
 
 
 const ItemListContainer = ({ mensaje }) => {
     const [productos, setProductos] = useState([])
     const [loading, setLoading] = useState(true)
+    const { idCategory } = useParams()
 
     useEffect(() => {
-        productsFetch
-        .then(respuesta =>{
-            setProductos(respuesta)
-        })
-        .catch(error => console.log(error))
-        .finally(() => setLoading(false))
-    }, [])
+
+        if(idCategory){
+            productsFetch
+            .then(respuesta =>{
+                setProductos(respuesta.filter(prod => prod.category === idCategory))
+            })
+            .catch(error => console.log(error))
+            .finally(() => setLoading(false))
+        }else{
+            productsFetch
+            .then(respuesta =>{
+                setProductos(respuesta)
+            })
+            .catch(error => console.log(error))
+            .finally(() => setLoading(false))
+        }
+
+    }, [idCategory])
 
     return (
         <>
-            <Container className="d-flex justify-content-center">
+            <Container fluid className="d-flex row justify-content-center m-0">
             { loading ? <Card style={{ width: '18rem' }} className="text-center shadow border-5 m-2" border="primary">
                             <Container class="container flex d-flex">
                                 <Spinner animation="border" variant="primary"className="m-3" />
