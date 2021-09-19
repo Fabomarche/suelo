@@ -29,6 +29,14 @@ $secondary: #d4d3cd;
   font-family: Butler_Medium_Stencil;
   text-shadow: 0px 2px 10px rgb(46, 46, 46);
 }
+.categorias {
+  text-shadow: none;
+}
+.categorias:hover {
+  text-shadow: -2px 5px 2px $dark;
+  transition: 0.5s;
+  background-color: #142935;
+}
 
 .fade-in {
   animation: fadeIn 1s;

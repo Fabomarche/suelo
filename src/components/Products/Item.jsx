@@ -8,7 +8,7 @@ import Button from 'react-bootstrap/Button'
 const Item = ({ producto }) => {
     return (
     <>
-    
+        
             <Card key={producto.id} style={{ width: '18rem' }} className="m-2 text-center shadow border-4 fade-in p-0" border="dark">
                     <div className="overflow">
                         <RouterLink to={`/detalle/${producto.id}`}>

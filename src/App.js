@@ -6,8 +6,7 @@ import ItemListContainer from './components/Containers/ItemListContainer';
 /* import ItemCount from './components/ItemCount' */
 import ItemDetailContainer from './components/Containers/ItemDetailContainer';
 import Cart from './components/Cart/Cart'
-/* import Intro from './components/Intro'
-import Carousel_intro from './components/Carousel_intro'; */
+
 
 function App() {
   return (
@@ -27,8 +26,7 @@ function App() {
           <Route exact path='/detalle/:id'>
             <main className="container justify-content-center">
               <ItemDetailContainer/>
-              {/*  <Intro />
-                <Carousel_intro /> */}
+
             </main>    
           </Route>
           <Route exact path='/cart' component={Cart}/>
@@ -37,6 +35,7 @@ function App() {
         </Switch>
 
       </div>
+      
     </BrowserRouter>
   );
 }

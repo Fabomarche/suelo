@@ -36,6 +36,8 @@ const ItemListContainer = ({ mensaje }) => {
 
     }, [idCategory])
 
+    
+
     return (
         <>
             <Container fluid className="d-flex row justify-content-center m-0">

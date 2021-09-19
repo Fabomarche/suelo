@@ -14,9 +14,8 @@ import { Link as RouterLink } from "react-router-dom"
 const NavBar = () => {
     return(
         <>
-            <Navbar className="d-block p-0 shadow-lg" bg="primary" variant="dark" expand="lg" sticky="top">
+            <Navbar className="flex-column justify-content-center p-0 shadow-lg" bg="primary" variant="dark" expand="lg" sticky="top">
                 <Container className="ps-0 text-secondary">
-           
                     <RouterLink exact to='/'>
                         <Navbar.Brand className="col-4 col-md-2 d-flex justify-content-center ms-4 ">
                             <img id="logo-header"
@@ -27,13 +26,13 @@ const NavBar = () => {
                         </Navbar.Brand>
                     </RouterLink>
 
-                        <Container className="col-6 order-last order-md-0 d-flex justify-content-center mb-md-0 mb-2">
+                    <Container className="col-6 order-last order-md-0 d-flex justify-content-center mb-md-0 mb-2">
                         <Form className="buscar flex-grow-1 shadow" >
                             <Form.Group >
                                 <Form.Control className="text-center" type="search" placeholder="¿Qué comés hoy?"/>
                             </Form.Group>
                         </Form>
-                        </Container>
+                    </Container>
                     
                     <RouterLink exact to="/cart">
                         <CartWidget />
@@ -41,25 +40,21 @@ const NavBar = () => {
                     
                     <UserWidget />
                     
-                
-
                     <Navbar.Toggle aria-controls="basic-navbar-nav" className="text-secondary bg-primary"/>    
-          
-                
-              
-                    <Navbar.Collapse id="basic-navbar-nav col-2" className="">
-                        
-                        
 
-                    </Navbar.Collapse>
-          
                 </Container>
-                <Container className="justify-content-center">
-                     <Nav> 
-                        <Nav.Link><RouterLink to={`/categoria/frutas`} className="text-secondary text-decoration-none">Frutas</RouterLink></Nav.Link>
-                        <Nav.Link><RouterLink to={`/categoria/verduras`} className="text-secondary text-decoration-none">Verduras</RouterLink></Nav.Link>
-                    </Nav>
-                </Container>
+                
+                <Navbar.Collapse id="basic-navbar-nav col-2">
+                    <Container className="justify-content-center">
+                        <Nav>                         <Nav.Link className="categorias m-0" ><RouterLink to={`/categoria/frutas`} className="text-secondary text-decoration-none">Frutas</RouterLink></Nav.Link>
+                            <Nav.Link className="categorias m-0"><RouterLink to={`/categoria/verduras`} className="text-secondary text-decoration-none">Verduras</RouterLink></Nav.Link>
+                            <Nav.Link className="categorias m-0"><RouterLink to={`/categoria/bakery`} className="text-secondary text-decoration-none">Bakery</RouterLink></Nav.Link>
+                            <Nav.Link className="categorias m-0"><RouterLink to={`/categoria/platos`} className="text-secondary text-decoration-none">Platos</RouterLink></Nav.Link>
+                            <Nav.Link className="categorias m-0"><RouterLink to={`/categoria/congelados`} className="text-secondary text-decoration-none">Congelados</RouterLink></Nav.Link>
+                        </Nav>
+                    </Container>
+                </Navbar.Collapse>
+
             </Navbar>
         </>
     )
