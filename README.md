@@ -1,3 +1,23 @@
+El proyecto Suelo es un E-commerce de la tienda homónima de venta de comestibles orgánicos.
+
+El concepto de la App es simple: un Header donde se pueda filtrar y encontrar rápidamente el producto deseado. Más el acceso al carrito y logueo.(aún no desarrollados dicho Carrito y Logueo).
+Y un Main con el catalogo de productos según el filtro aplicado. Al ingresar al detalle de cada producto se puede agregar al carrito de compras
+
+En un futuro pienso agregar un footer con acceso a redes y contactos.
+El diseño aún no me convence asiq ue trabajaré en eso.
+
+La única dependencia instalada que no esta dentro de las trabajadas en el curso de Coder de React Js es SASS que la utilizo para editar o modificar Bootstrap.
+
+Marchetti Fabricio
+
+---
+
+---
+
+---
+
+---
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

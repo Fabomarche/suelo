@@ -70,7 +70,35 @@ const products = [
     stock: 1500,
     pictureUrl: "https://d3ugyf2ht6aenh.cloudfront.net/stores/001/088/440/products/_p6461401-5c282797786bf8f82015861050573791-1024-1024.jpg",
     description:"lorem  lorem lorem  lorem lorem  lorem lorem  lorem lorem  lorem lorem  lorem lorem  lorem lorem  lorem lorem  lorem "
+},
+{
+    id: 9,
+    category: 'bakery',
+    title: "Pan",
+    price: 100,
+    stock: 200,
+    pictureUrl: "https://d3ugyf2ht6aenh.cloudfront.net/stores/001/088/440/products/lhoimg_65161-a18168ca2740dd59be16179924212750-640-0.jpg",
+    description:"lorem  lorem lorem  lorem lorem  lorem lorem  lorem lorem  lorem lorem  lorem lorem  lorem lorem  lorem lorem  lorem "
+},
+{
+    id: 10,
+    category: 'conservas',
+    title: "Tomate Orgánico Triturado",
+    price: 678,
+    stock: 500,
+    pictureUrl: "https://d3ugyf2ht6aenh.cloudfront.net/stores/001/088/440/products/tomate-11-0c94aff3e537da2d7816232606703412-1024-1024.jpg",
+    description:"lorem  lorem lorem  lorem lorem  lorem lorem  lorem lorem  lorem lorem  lorem lorem  lorem lorem  lorem lorem  lorem "
+},
+{
+    id: 11,
+    category: 'legumbres',
+    title: "Porotos Negros",
+    price: 460,
+    stock: 1400,
+    pictureUrl: "https://d3ugyf2ht6aenh.cloudfront.net/stores/001/088/440/products/porotos-negros1-506690ebcf638ed2c115884669777458-1024-10241-5624dbf2e70210442315929160220757-1024-1024.jpg",
+    description:"lorem  lorem lorem  lorem lorem  lorem lorem  lorem lorem  lorem lorem  lorem lorem  lorem lorem  lorem lorem  lorem "
 }
+
 ]
 
 export const productsFetch = new Promise((res, rej) => {

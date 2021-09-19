@@ -8,19 +8,21 @@ import Card from 'react-bootstrap/Card'
 import Container from 'react-bootstrap/Container'
 import Placeholder from 'react-bootstrap/Placeholder'
 import Spinner from 'react-bootstrap/Spinner'
-/* import { isCompositeComponent } from 'react-dom/test-utils' */
 
 
-const ItemListContainer = ({ mensaje }) => {
+const ItemListContainer = () => {
     const [productos, setProductos] = useState([])
     const [loading, setLoading] = useState(true)
     const { idCategory } = useParams()
+
+    
 
     useEffect(() => {
 
         if(idCategory){
             productsFetch
             .then(respuesta =>{
+                
                 setProductos(respuesta.filter(prod => prod.category === idCategory))
             })
             .catch(error => console.log(error))
@@ -36,7 +38,6 @@ const ItemListContainer = ({ mensaje }) => {
 
     }, [idCategory])
 
-    
 
     return (
         <>
@@ -56,8 +57,6 @@ const ItemListContainer = ({ mensaje }) => {
                         </Card> 
                     : <ItemList productos={productos}/> }
             </Container>
-        
-            <h2 className="text-center mt-5">{ mensaje }</h2>
         </>
     )
 }

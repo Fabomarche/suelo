@@ -49,8 +49,8 @@ const NavBar = () => {
                         <Nav>                         <Nav.Link className="categorias m-0" ><RouterLink to={`/categoria/frutas`} className="text-secondary text-decoration-none">Frutas</RouterLink></Nav.Link>
                             <Nav.Link className="categorias m-0"><RouterLink to={`/categoria/verduras`} className="text-secondary text-decoration-none">Verduras</RouterLink></Nav.Link>
                             <Nav.Link className="categorias m-0"><RouterLink to={`/categoria/bakery`} className="text-secondary text-decoration-none">Bakery</RouterLink></Nav.Link>
-                            <Nav.Link className="categorias m-0"><RouterLink to={`/categoria/platos`} className="text-secondary text-decoration-none">Platos</RouterLink></Nav.Link>
-                            <Nav.Link className="categorias m-0"><RouterLink to={`/categoria/congelados`} className="text-secondary text-decoration-none">Congelados</RouterLink></Nav.Link>
+                            <Nav.Link className="categorias m-0"><RouterLink to={`/categoria/conservas`} className="text-secondary text-decoration-none">Conservas</RouterLink></Nav.Link>
+                            <Nav.Link className="categorias m-0"><RouterLink to={`/categoria/legumbres`} className="text-secondary text-decoration-none">Legumbres</RouterLink></Nav.Link>
                         </Nav>
                     </Container>
                 </Navbar.Collapse>
