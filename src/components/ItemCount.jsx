@@ -4,13 +4,17 @@ import Container from 'react-bootstrap/Container'
 import Button from 'react-bootstrap/Button'
 import Form from 'react-bootstrap/Form'
 
-const ItemCount = ( {stock, initial} ) => {
+import { Link as RouterLink} from 'react-router-dom'
+
+const ItemCount = ( {stock, initial, onAdd} ) => {
     const [stockCount, setStockCount] = useState(stock)
-    const [count, setCount] = useState(initial)
     const [cart, setCart] = useState(0)
 
+    const [count, setCount] = useState(initial)
+    const [changeBtn, setChangeBtn] = useState(true)
+
     const sum = () => {
-        if (count < stockCount){
+        if (count < stock){
             setCount (count + 1)
         }
         
@@ -21,7 +25,7 @@ const ItemCount = ( {stock, initial} ) => {
         }
     }
 
-    const onAdd = () => {  
+    const stockToPrint = () => {  
         if(stockCount - count >= 0){
         setStockCount(stockCount - count)
         setCart(cart + count)
@@ -29,20 +33,38 @@ const ItemCount = ( {stock, initial} ) => {
         }
     }
 
+    const addToCart = ()=>{
+        stockToPrint()
+        onAdd(count)
+        setChangeBtn(false)
+    }
 
     return (
         <Container className="bg-primary py-3 shadow">
-            <h3 className="text-white">Agregue Items</h3>
-            <Form className="text-center d-inline-block">
-                <Row className="align-items-center justify-content-center">
-                    <Button className="p-0 bg-secondary text-dark shadow w-25" onClick={sub}>-</Button>
-                    <Form.Control className="p-0 fs-1 w-25 text-center" value={count}/>
-                    <Button className="p-0 bg-secondary text-dark shadow w-25" onClick={sum}>+</Button>
-                </Row>
-                <Button variant="secondary" className="my-3 shadow" onClick={onAdd}>Agregar a carrito</Button>
-            </Form>
-            <h5 className="text-white">Stock: {stockCount}</h5>
-            <h2 className="text-white">Carrito: {cart}</h2>
+                {changeBtn?
+                    <Form className="text-center d-inline-block">
+                        <h3 className="text-white">Agregue Items</h3>
+                        <Row className="align-items-center justify-content-center">
+                            <Button className="p-0 bg-secondary text-dark shadow w-25" onClick={sub}>-</Button>
+                            <Form.Control className="p-0 fs-1 w-25 text-center" value={count}/>
+                            <Button className="p-0 bg-secondary text-dark shadow w-25" onClick={sum}>+</Button>
+                        </Row>
+                        <Button variant="secondary" className="my-3 shadow" onClick={addToCart}>Agregar a carrito</Button>
+                        <h5 className="text-white">Stock: {stockCount}</h5>
+                    </Form>
+                    : <Container>
+                        <h3 className="text-white">¿Cómo seguimos?</h3>
+                        <RouterLink to='/cart'>
+                            <Button variant="secondary" className="my-1 shadow" >Terminar compra</Button>
+                        </RouterLink>
+                        <br/>
+                        <RouterLink to='/'>
+                            <Button variant="secondary" className="my-1 shadow">Comprár más</Button>
+                        </RouterLink>
+                        <h5 className="text-white mt-2">Stock: {stockCount}</h5>
+                        <h2 className="text-white">Carrito: {cart}</h2>
+                    </Container>
+                }
         </Container>
     )
 }

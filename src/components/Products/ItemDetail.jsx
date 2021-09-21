@@ -5,6 +5,11 @@ import ItemCount from '../ItemCount'
 import Card from 'react-bootstrap/Card'
 
 const ItemDetail = ({ detalle }) => {
+    
+    const onAdd = (cantidad) => {
+        console.log(`${cantidad} ${detalle.title}`)
+    }
+
     return (
         <>
             <Card key={detalle.id} style={{ width: '25rem' }} className="m-2 text-center shadow border-4 fade-in" border="dark">
@@ -18,7 +23,7 @@ const ItemDetail = ({ detalle }) => {
                     Precio: $ {detalle.price}
                     </Card.Text>
 
-                    <ItemCount stock={detalle.stock} initial={1}/>
+                    <ItemCount stock={detalle.stock} initial={1} onAdd={onAdd}/>
 
                 </Card.Body>
         </Card>
