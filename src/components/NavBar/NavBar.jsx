@@ -46,7 +46,8 @@ const NavBar = () => {
                 
                 <Navbar.Collapse id="basic-navbar-nav col-2">
                     <Container className="justify-content-center">
-                        <Nav>                         <Nav.Link className="categorias m-0" ><RouterLink to={`/categoria/frutas`} className="text-secondary text-decoration-none">Frutas</RouterLink></Nav.Link>
+                        <Nav>                         
+                            <Nav.Link className="categorias m-0" ><RouterLink to={`/categoria/frutas`} className="text-secondary text-decoration-none">Frutas</RouterLink></Nav.Link>
                             <Nav.Link className="categorias m-0"><RouterLink to={`/categoria/verduras`} className="text-secondary text-decoration-none">Verduras</RouterLink></Nav.Link>
                             <Nav.Link className="categorias m-0"><RouterLink to={`/categoria/bakery`} className="text-secondary text-decoration-none">Bakery</RouterLink></Nav.Link>
                             <Nav.Link className="categorias m-0"><RouterLink to={`/categoria/conservas`} className="text-secondary text-decoration-none">Conservas</RouterLink></Nav.Link>

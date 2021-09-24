@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
 import Row from 'react-bootstrap/Row'
 import Container from 'react-bootstrap/Container'
 import Button from 'react-bootstrap/Button'
@@ -33,10 +33,10 @@ const ItemCount = ( {stock, initial, onAdd} ) => {
         }
     }
 
-    const addToCart = ()=>{
+    const agregarCarrito = () => {
         stockToPrint()
-        onAdd(count)
         setChangeBtn(false)
+        onAdd(count)
     }
 
     return (
@@ -49,7 +49,7 @@ const ItemCount = ( {stock, initial, onAdd} ) => {
                             <Form.Control className="p-0 fs-1 w-25 text-center" value={count}/>
                             <Button className="p-0 bg-secondary text-dark shadow w-25" onClick={sum}>+</Button>
                         </Row>
-                        <Button variant="secondary" className="my-3 shadow" onClick={addToCart}>Agregar a carrito</Button>
+                        <Button variant="secondary" className="my-3 shadow" onClick={agregarCarrito}>Agregar a carrito</Button>
                         <h5 className="text-white">Stock: {stockCount}</h5>
                     </Form>
                     : <Container>

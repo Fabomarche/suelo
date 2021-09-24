@@ -1,13 +1,17 @@
-import React from 'react'
+import { UseCartContext } from '../../context/cartContext'
 
 import ItemCount from '../ItemCount'
 
 import Card from 'react-bootstrap/Card'
 
 const ItemDetail = ({ detalle }) => {
+
+    const { addToCart } = UseCartContext()
     
-    const onAdd = (cantidad) => {
-        console.log(`${cantidad} ${detalle.title}`)
+    const onAdd = (count) => {
+        console.log(`${count} ${detalle.title}`)
+        console.log({product: detalle, count: count})
+        addToCart({product: detalle, count: count})
     }
 
     return (
@@ -23,7 +27,7 @@ const ItemDetail = ({ detalle }) => {
                     Precio: $ {detalle.price}
                     </Card.Text>
 
-                    <ItemCount stock={detalle.stock} initial={1} onAdd={onAdd}/>
+                    <ItemCount stock={detalle.stock} initial={1} onAdd={onAdd} detalle={detalle}/>
 
                 </Card.Body>
         </Card>
