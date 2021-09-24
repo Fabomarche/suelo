@@ -10,7 +10,6 @@ const ItemDetail = ({ detalle }) => {
     
     const onAdd = (count) => {
         console.log(`${count} ${detalle.title}`)
-        console.log({product: detalle, count: count})
         addToCart({product: detalle, count: count})
     }
 

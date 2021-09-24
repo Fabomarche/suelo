@@ -9,14 +9,14 @@ export default function CartContextProvider ({children}){
     
     const addToCart = (prodAndCount) => {
         setCartList([...cartList, prodAndCount])
+        
     }
     
-    /* const eraseList = () => {
+    const eraseList = () => {
         setCartList([])
-    } */
-    
+    }
     return(
-        <cartContext.Provider value={cartList, addToCart}>
+        <cartContext.Provider value={{cartList, addToCart, eraseList}}>
             {children}
         </cartContext.Provider>
     )

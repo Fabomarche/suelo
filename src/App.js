@@ -1,4 +1,3 @@
-/* import { useState} from 'react' */
 import { BrowserRouter, Switch, Route } from "react-router-dom"
 
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -10,11 +9,7 @@ import ItemListContainer from './components/Containers/ItemListContainer';
 import ItemDetailContainer from './components/Containers/ItemDetailContainer';
 import Cart from './components/Cart/Cart'
 
-
-
 function App() {
-  /* const [state, setstate] = useState() */
-
   return (
     <CartContextProvider>
       <BrowserRouter>
