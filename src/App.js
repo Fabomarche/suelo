@@ -4,9 +4,11 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.scss';
 import CartContextProvider from './context/cartContext';
 
-import NavBar from './components/NavBar/NavBar'
 import ItemListContainer from './components/Containers/ItemListContainer';
 import ItemDetailContainer from './components/Containers/ItemDetailContainer';
+import Footer from "./components/Footer";
+
+import NavBar from './components/NavBar/NavBar'
 import Cart from './components/Cart/Cart'
 
 function App() {
@@ -35,6 +37,9 @@ function App() {
 
           </main>    
         </div>
+        <footer>
+            <Footer />
+        </footer>
       </BrowserRouter>
     </CartContextProvider>  
   );

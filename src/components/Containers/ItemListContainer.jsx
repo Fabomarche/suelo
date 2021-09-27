@@ -39,9 +39,8 @@ const ItemListContainer = () => {
 
     return (
         <>
-            <Container fluid className="d-flex row justify-content-center m-0">
-            { loading ?  <LoadingItem />
-                    : <ItemList productos={productos}/> }
+            <Container fluid className="d-flex row justify-content-center m-0 pt-3">
+            { loading ?  <LoadingItem /> : <ItemList productos={productos}/> }
             </Container>
         </>
     )

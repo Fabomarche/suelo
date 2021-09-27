@@ -41,7 +41,7 @@ const ItemCount = ( {stock, initial, onAdd} ) => {
 
     return (
         <Container className="bg-primary py-3 shadow">
-                {changeBtn?
+                {changeBtn ?
                     <Form className="text-center d-inline-block">
                         <h3 className="text-white">Agregue Items</h3>
                         <Row className="align-items-center justify-content-center">
@@ -52,6 +52,7 @@ const ItemCount = ( {stock, initial, onAdd} ) => {
                         <Button variant="secondary" className="my-3 shadow" onClick={agregarCarrito}>Agregar a carrito</Button>
                         <h5 className="text-white">Stock: {stockCount}</h5>
                     </Form>
+                    
                     : <Container>
                         <h3 className="text-white">¿Cómo seguimos?</h3>
                         <RouterLink to='/cart'>

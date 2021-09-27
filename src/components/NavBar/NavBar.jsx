@@ -1,9 +1,10 @@
-import React from 'react'
+import { UseCartContext } from "../../context/cartContext"
+
 import Navbar from 'react-bootstrap/Navbar'
 import Container from 'react-bootstrap/Container'
 import Nav from 'react-bootstrap/Nav'
 import Form from 'react-bootstrap/Form'
-import Row from 'react-bootstrap/Row'
+
 
 import logoSuelo from '../../assets/images/Logo_Suelo.jpg'
 import CartWidget from './CartWidget'
@@ -12,10 +13,14 @@ import UserWidget from './UserWidget'
 import { Link as RouterLink } from "react-router-dom"
 
 const NavBar = () => {
+    const { totalItemsQuntity } = UseCartContext()
+
     return(
         <>
-            <Navbar className="flex-column justify-content-center p-0 shadow-lg" bg="primary" variant="dark" expand="lg" sticky="top">
-                <Container className="ps-0 text-secondary">
+          
+
+            <Navbar className="flex-column justify-content-center p-0 shadow-lg border-bottom border-white border-2" bg="primary" variant="dark" expand="lg" fixed="top">
+                <Container className="p-0 text-secondary ">
                     <RouterLink exact to='/'>
                         <Navbar.Brand className="col-4 col-md-2 d-flex justify-content-center ms-4 ">
                             <img id="logo-header"
@@ -34,18 +39,16 @@ const NavBar = () => {
                         </Form>
                     </Container>
                     
-                    <RouterLink exact to="/cart">
-                        <CartWidget />
-                    </RouterLink>
+                    {totalItemsQuntity !== 0 && <RouterLink exact to="/cart" className="text-decoration-none"><CartWidget /></RouterLink>}
                     
-                    <UserWidget />
+                    <UserWidget/>
                     
                     <Navbar.Toggle aria-controls="basic-navbar-nav" className="text-secondary bg-primary"/>    
 
                 </Container>
                 
                 <Navbar.Collapse id="basic-navbar-nav col-2">
-                    <Container className="justify-content-center">
+                    <Container className="justify-content-center border-top border-secondary border-1 border-top border-secondary border-2">
                         <Nav>                         
                             <Nav.Link className="categorias m-0" ><RouterLink to={`/categoria/frutas`} className="text-secondary text-decoration-none">Frutas</RouterLink></Nav.Link>
                             <Nav.Link className="categorias m-0"><RouterLink to={`/categoria/verduras`} className="text-secondary text-decoration-none">Verduras</RouterLink></Nav.Link>
