@@ -11,6 +11,7 @@ import Footer from "./components/Footer";
 import NavBar from './components/NavBar/NavBar'
 import Cart from './components/Cart/Cart'
 
+
 function App() {
   return (
     <CartContextProvider>

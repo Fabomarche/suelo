@@ -50,7 +50,7 @@ const ItemCount = ( {stock, initial, onAdd} ) => {
                             <Button className="p-0 bg-secondary text-dark shadow w-25" onClick={sum}>+</Button>
                         </Row>
                         <Button variant="secondary" className="my-3 shadow" onClick={agregarCarrito}>Agregar a carrito</Button>
-                        <h5 className="text-white">Stock: {stockCount}</h5>
+                        {/* <h5 className="text-white">Stock: {stockCount}</h5> */}
                     </Form>
                     
                     : <Container>
@@ -62,8 +62,8 @@ const ItemCount = ( {stock, initial, onAdd} ) => {
                         <RouterLink to='/'>
                             <Button variant="secondary" className="my-1 shadow">Comprár más</Button>
                         </RouterLink>
-                        <h5 className="text-white mt-2">Stock: {stockCount}</h5>
-                        <h2 className="text-white">Carrito: {cart}</h2>
+                        {/* <h5 className="text-white mt-2">Stock: {stockCount}</h5> */}
+                        {/* <h2 className="text-white">Carrito: {cart}</h2> */}
                     </Container>
                 }
         </Container>

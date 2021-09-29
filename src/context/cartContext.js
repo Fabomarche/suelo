@@ -34,7 +34,7 @@ export default function CartContextProvider ({children}){
         setCartList([])
     }
 
-    console.log(totalItemsQuntity)
+    console.log(cartList)
     return(
         <cartContext.Provider value={{cartList, totalToPay, totalItemsQuntity, addToCart, eraseList, removeItem}}>
             {children}
