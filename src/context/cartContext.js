@@ -30,8 +30,10 @@ export default function CartContextProvider ({children}){
         setCartList(cartList.filter(prodToRemove => prodToRemove != item))
     }
 
-    const eraseList = () => {
+    const eraseList = (e) => {
+        e.preventDefault()
         setCartList([])
+        setTotalItemsQuntity(0)
     }
 
     console.log(cartList)

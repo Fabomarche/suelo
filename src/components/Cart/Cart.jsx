@@ -10,7 +10,7 @@ import { Link as RouterLink} from 'react-router-dom'
 
 
 const Cart = () => {
-    const { cartList, totalToPay, removeItem } = UseCartContext()
+    const { cartList, totalToPay, removeItem, eraseList } = UseCartContext()
 
     const renderTooltip = (props) => (
         <Tooltip id="button-tooltip" {...props}>
@@ -28,7 +28,8 @@ const Cart = () => {
                 </RouterLink>
             </div>    
 
-            :<Table striped bordered hover size="sm">
+            :<>
+            <Table striped bordered hover size="sm">
                 <thead className="bg-primary text-secondary">
                     <tr>
                     <th>Cantidad</th>
@@ -54,7 +55,9 @@ const Cart = () => {
                         <td className="text-danger bg-secondary">$ {totalToPay}</td>
                     </tr>
                 </tbody>
-            </Table>       
+            </Table>
+            <Button variant="primary" className="m-1 shadow" onClick={eraseList}>Borrar carrito</Button> 
+            </>     
         }
         </div>
 
