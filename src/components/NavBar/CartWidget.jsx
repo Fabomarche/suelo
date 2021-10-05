@@ -11,7 +11,7 @@ const CartWidget = () => {
         
             <Container className="d-flex">
                 <img src={cart} className="shoppingCart" alt="shopping cart" />
-                <p className="text-secondary cart-number ms-1 my-0">{totalItemsQuntity}</p>
+                {totalItemsQuntity !== 0 && <p className="text-secondary cart-number ms-1 my-0">{totalItemsQuntity}</p>}
             </Container>
             
             <p className="texto-iconos text-secondary">Carrito</p>

@@ -1,4 +1,5 @@
 import { useState } from 'react'
+
 import Row from 'react-bootstrap/Row'
 import Container from 'react-bootstrap/Container'
 import Button from 'react-bootstrap/Button'
@@ -16,6 +17,8 @@ const ItemCount = ( {stock, initial, onAdd} ) => {
     const sum = () => {
         if (count < stock){
             setCount (count + 1)
+        }else{
+            alert('Su pedido supera el stock disponible')
         }
         
     }
@@ -50,20 +53,17 @@ const ItemCount = ( {stock, initial, onAdd} ) => {
                             <Button className="p-0 bg-secondary text-dark shadow w-25" onClick={sum}>+</Button>
                         </Row>
                         <Button variant="secondary" className="my-3 shadow" onClick={agregarCarrito}>Agregar a carrito</Button>
-                        {/* <h5 className="text-white">Stock: {stockCount}</h5> */}
                     </Form>
                     
                     : <Container>
                         <h3 className="text-white">¿Cómo seguimos?</h3>
                         <RouterLink to='/cart'>
-                            <Button variant="secondary" className="my-1 shadow" >Terminar compra</Button>
+                            <Button variant="secondary" className="my-1 shadow">Ir al carrito</Button>
                         </RouterLink>
                         <br/>
                         <RouterLink to='/'>
                             <Button variant="secondary" className="my-1 shadow">Comprár más</Button>
                         </RouterLink>
-                        {/* <h5 className="text-white mt-2">Stock: {stockCount}</h5> */}
-                        {/* <h2 className="text-white">Carrito: {cart}</h2> */}
                     </Container>
                 }
         </Container>

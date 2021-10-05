@@ -17,8 +17,6 @@ const NavBar = () => {
 
     return(
         <>
-          
-
             <Navbar className="flex-column justify-content-center p-0 shadow-lg border-bottom border-white border-2" bg="primary" variant="dark" expand="lg" fixed="top">
                 <Container className="p-0 text-secondary ">
                     <RouterLink exact to='/'>
@@ -39,7 +37,7 @@ const NavBar = () => {
                         </Form>
                     </Container>
                     
-                    {totalItemsQuntity !== 0 && <RouterLink exact to="/cart" className="text-decoration-none"><CartWidget /></RouterLink>}
+                    <RouterLink exact to="/cart" className="text-decoration-none"><CartWidget /></RouterLink>
                     
                     <UserWidget/>
                     
