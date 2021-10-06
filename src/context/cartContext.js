@@ -11,8 +11,8 @@ export default function CartContextProvider ({children}){
     
 
     const addToCart = (prodWithCount) => {
-        if(cartList.find( item => item.title == prodWithCount.title)){
-            let prodIndex = cartList.findIndex(el => el.title == prodWithCount.title)
+        if(cartList.find( item => item.title === prodWithCount.title)){
+            let prodIndex = cartList.findIndex(el => el.title === prodWithCount.title)
             cartList[prodIndex].quantity = cartList[prodIndex].quantity + prodWithCount.quantity
             setCartList(cartList)
         }else{
@@ -27,7 +27,7 @@ export default function CartContextProvider ({children}){
         e.preventDefault()
         setTotalItemsQuntity(totalItemsQuntity - item.quantity)
         setTotalToPay(totalToPay - item.quantity * item.price)
-        setCartList(cartList.filter(prodToRemove => prodToRemove != item))
+        setCartList(cartList.filter(prodToRemove => prodToRemove !== item))
     }
 
     const eraseList = (e) => {
@@ -36,7 +36,6 @@ export default function CartContextProvider ({children}){
         setTotalItemsQuntity(0)
     }
 
-    console.log(cartList)
     return(
         <cartContext.Provider value={{cartList, setCartList, totalToPay, totalItemsQuntity, addToCart, eraseList, removeItem}}>
             {children}

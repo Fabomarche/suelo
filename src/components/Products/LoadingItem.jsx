@@ -8,7 +8,7 @@ import Spinner from 'react-bootstrap/Spinner'
 const LoadingItem = () => {
     return (
         <Card style={{ width: '18rem' }} className="text-center shadow border-5 m-2" border="primary">
-            <Container class="container flex d-flex">
+            <Container className="container flex d-flex">
                 <Spinner animation="border" variant="primary"className="m-3" />
                 <Card.Title>Cargando...</Card.Title>
             </Container>

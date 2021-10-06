@@ -8,7 +8,7 @@ const Item = ({ producto }) => {
     return (
     <>
         
-            <Card key={producto.id} style={{ width: '18rem' }} className="m-2 text-center shadow border-4 fade-in p-0" border="dark">
+            <Card style={{ width: '18rem' }} className="m-2 text-center shadow border-4 fade-in p-0" border="dark">
                     <div className="overflow border-bottom border-primary border-3">
                         <RouterLink to={`/detalle/${producto.id}`}>
                             <Card.Img variant="top" src={producto.pictureUrl} className="card-img-top"/>

@@ -3,8 +3,8 @@ import Container from 'react-bootstrap/Container'
 
 const Footer = () => {
     return (
-        <Container fluid className="pt-2 bg-primary m-0 text-secondary">
-            <p className="m-0">Powered by Fabricio Marchetti</p>
+        <Container id="footer" fluid className="p-2 m-0">
+            <p className="m-0">Powered by <a href="https://www.linkedin.com/in/fabricio-marchetti" className="text-decoration-none" target="_blank">Fabricio Marchetti</a></p>
         </Container>
     )
 }

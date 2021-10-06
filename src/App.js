@@ -10,7 +10,7 @@ import Footer from "./components/Footer";
 
 import NavBar from './components/NavBar/NavBar'
 import Cart from './components/Cart/Cart'
-
+import CartForm from "./components/Cart/CartForm";
 
 function App() {
   return (
@@ -33,14 +33,16 @@ function App() {
                   <ItemDetailContainer/>
               </Route>
 
-              <Route exact path='/cart' component={Cart}/>            
+              <Route exact path='/cart' component={Cart}/> 
+
+              <Route exact path='/cartForm' component={CartForm}/>
             </Switch>
 
           </main>    
+          <footer>
+              <Footer />
+          </footer>
         </div>
-        <footer>
-            <Footer />
-        </footer>
       </BrowserRouter>
     </CartContextProvider>  
   );

@@ -49,7 +49,7 @@ const ItemCount = ( {stock, initial, onAdd} ) => {
                         <h3 className="text-white">Agregue Items</h3>
                         <Row className="align-items-center justify-content-center">
                             <Button className="p-0 bg-secondary text-dark shadow w-25" onClick={sub}>-</Button>
-                            <Form.Control className="p-0 fs-1 w-25 text-center" value={count}/>
+                            <Form.Text className="bg-white text-dark p-0 fs-1 w-25 text-center rounded">{count}</Form.Text>
                             <Button className="p-0 bg-secondary text-dark shadow w-25" onClick={sum}>+</Button>
                         </Row>
                         <Button variant="secondary" className="my-3 shadow" onClick={agregarCarrito}>Agregar a carrito</Button>

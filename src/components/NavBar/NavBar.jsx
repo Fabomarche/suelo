@@ -1,4 +1,4 @@
-import { UseCartContext } from "../../context/cartContext"
+/* import { UseCartContext } from "../../context/cartContext" */
 
 import Navbar from 'react-bootstrap/Navbar'
 import Container from 'react-bootstrap/Container'
@@ -13,13 +13,13 @@ import UserWidget from './UserWidget'
 import { Link as RouterLink } from "react-router-dom"
 
 const NavBar = () => {
-    const { totalItemsQuntity } = UseCartContext()
+ /*    const { totalItemsQuntity } = UseCartContext() */
 
     return(
         <>
             <Navbar className="flex-column justify-content-center p-0 shadow-lg border-bottom border-white border-2" bg="primary" variant="dark" expand="lg" fixed="top">
                 <Container className="p-0 text-secondary ">
-                    <RouterLink exact to='/'>
+                    <RouterLink to='/'>
                         <Navbar.Brand className="col-4 col-md-2 d-flex justify-content-center ms-4 ">
                             <img id="logo-header"
                                 src={logoSuelo} 
@@ -37,7 +37,7 @@ const NavBar = () => {
                         </Form>
                     </Container>
                     
-                    <RouterLink exact to="/cart" className="text-decoration-none"><CartWidget /></RouterLink>
+                    <RouterLink to={"/cart"} className="text-decoration-none"><CartWidget /></RouterLink>
                     
                     <UserWidget/>
                     
@@ -48,11 +48,11 @@ const NavBar = () => {
                 <Navbar.Collapse id="basic-navbar-nav col-2">
                     <Container className="justify-content-center border-top border-secondary border-1 border-top border-secondary border-2">
                         <Nav>                         
-                            <Nav.Link className="categorias m-0" ><RouterLink to={`/categoria/frutas`} className="text-secondary text-decoration-none">Frutas</RouterLink></Nav.Link>
-                            <Nav.Link className="categorias m-0"><RouterLink to={`/categoria/verduras`} className="text-secondary text-decoration-none">Verduras</RouterLink></Nav.Link>
-                            <Nav.Link className="categorias m-0"><RouterLink to={`/categoria/bakery`} className="text-secondary text-decoration-none">Bakery</RouterLink></Nav.Link>
-                            <Nav.Link className="categorias m-0"><RouterLink to={`/categoria/conservas`} className="text-secondary text-decoration-none">Conservas</RouterLink></Nav.Link>
-                            <Nav.Link className="categorias m-0"><RouterLink to={`/categoria/legumbres`} className="text-secondary text-decoration-none">Legumbres</RouterLink></Nav.Link>
+                            <RouterLink to={'/categoria/frutas'} className="container categorias m-0 text-secondary text-decoration-none">Frutas</RouterLink>
+                            <RouterLink to={'/categoria/verduras'} className="container categorias m-0 text-secondary text-decoration-none">Verduras</RouterLink>
+                            <RouterLink to={'/categoria/baker'} className="container categorias m-0 text-secondary text-decoration-none">Bakery</RouterLink>
+                            <RouterLink to={'/categoria/conservas'} className="container categorias m-0 text-secondary text-decoration-none">Conservas</RouterLink>
+                            <RouterLink to={'/categoria/legumbres'} className="container categorias m-0 text-secondary text-decoration-none">Legumbres</RouterLink>
                         </Nav>
                     </Container>
                 </Navbar.Collapse>

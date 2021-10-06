@@ -1,34 +1,29 @@
 import { useState } from "react"
 import { UseCartContext } from "../../context/cartContext"
 
+import { Link as RouterLink} from 'react-router-dom'
+
 import { getFirestore } from '../../services/getFirebase'
 import  firebase  from 'firebase'
 import 'firebase/firestore'
 
-import Table from 'react-bootstrap/Table'
+import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
-import CloseButton from 'react-bootstrap/CloseButton'
-import Tooltip from 'react-bootstrap/Tooltip'
-import OverlayTrigger from 'react-bootstrap/OverlayTrigger'
-/* import Form from 'react-bootstrap/Form'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 import Alert from 'react-bootstrap/Alert'
-import Modal from 'react-bootstrap/Modal' */
+import Modal from 'react-bootstrap/Modal'
+import { Container } from "react-bootstrap"
 
-import { Link as RouterLink} from 'react-router-dom'
-
-
-const Cart = () => {
+const CartForm = () => {
     const [formData, setFormData] = useState({name:'', phone:'', email:'', email2:''})
     const [showAlert, setShowAlert] = useState(false)
     const [idPurchase, setIdPurchase] = useState('')
-    const [showForm, setShowForm] = useState(false)
 
-    const { cartList, totalToPay, removeItem, eraseList } = UseCartContext()
+    const { cartList, totalToPay, eraseList } = UseCartContext()
 
 
-/*     const handleOnSubmit = (e) => {
+    const handleOnSubmit = (e) => {
         e.preventDefault()
         let purchase = {}
 
@@ -79,17 +74,9 @@ const Cart = () => {
 
                 setShowAlert(true)
             }
-}; */
-        
-    
+};
 
-    const renderTooltip = (props) => (
-        <Tooltip id="button-tooltip" {...props}>
-            Quitar item
-        </Tooltip>
-    );
-
-   /*  const handleOnChange = (e) => {
+    const handleOnChange = (e) => {
         setFormData({
             ...formData,
             [e.target.name]: e.target.value
@@ -97,60 +84,12 @@ const Cart = () => {
         )
     }
 
-    const handleClose = () => setShowAlert(false); */
+    const handleClose = () => setShowAlert(false);
 
-
-    
-    //para actualizar data
-    // db.collection('products').doc('id').update({stock: ***}) 
-    
     return (
-        <div className="text-center mt-4">
-            {cartList.length === 0 
-            ? <div className="container mt-3 pt-3">
-                <h3 className="mt-5">No hay items en el carrito</h3>
-                <RouterLink to='/'>
-                    <Button variant="primary" className="m-1 shadow">Ir a Comprar</Button>
-                </RouterLink>
-            </div>    
-
-            :<>
-            <h2 className="text-dark my-4">Produtos en Carrito</h2>
-            <Table striped bordered hover size="sm" className="m-0">
-                <thead className="bg-primary text-secondary">
-                    <tr>
-                    <th>Cantidad</th>
-                    <th>Producto</th>
-                    <th>Precio unitario</th>
-                    <th>Final</th>
-                    </tr>
-                </thead>
-                <tbody>
-                {cartList.map(itemInCart => 
-                    <tr key={itemInCart.id}>
-                        <td>{itemInCart.quantity}</td>
-                        <td><RouterLink to={`/detalle/${itemInCart.id}`}>{itemInCart.title}</RouterLink></td>
-                        <td>$ {itemInCart.price}</td>
-                        <td>$ {itemInCart.quantity * itemInCart.price}</td>
-                        <OverlayTrigger placement="right" delay={{ show: 250, hide: 400 }} overlay={renderTooltip}>
-                            <td className="bg-dark" ><CloseButton onClick={(e) => removeItem(itemInCart, e)} aria-label="Hide" variant="white"/></td>
-                        </OverlayTrigger>
-                    </tr>
-                )}
-                    <tr>
-                        <td colSpan="3" className="text-end text-danger bg-secondary">Total</td>
-                        <td className="text-danger bg-secondary">$ {totalToPay}</td>
-                    </tr>
-                </tbody>
-            </Table>
-
-            <Button variant="danger" className="m-3 shadow" onClick={eraseList}>Borrar carrito</Button>    
-
-            <RouterLink to={`/cartForm`}>        
-                <Button variant="primary" className="m-3 shadow" type="submit">Pagar</Button> 
-            </RouterLink>   
-            
-            {/* <Form onChange={handleOnChange} onSubmit={handleOnSubmit}>
+        <>
+            <h3 className="pt-5 text-center text-dark">Ingresa tus datos para confirmar la compra</h3>
+            <Form onChange={handleOnChange} onSubmit={handleOnSubmit} className="container text-center py-4 w-75">
                 <Row>
                     <Col>
                         <Form.Control required type="text" name="name" placeholder="Nombre y Apellido" defaultValue={formData.name} required/>
@@ -161,12 +100,11 @@ const Cart = () => {
                 </Row>
                 <Form.Control required type="email" name="email" placeholder="E-mail" defaultValue={formData.email}/>
                 <Form.Control required type="email" name="email2" placeholder="Confirme E-mail" defaultValue={formData.email2}/>
-                <Button variant="primary" className="mt-3 shadow" type="submit" >Terminar compra</Button> 
-            </Form> */}
+                <p className="mt-5 mb-0">Total a pagar: ${totalToPay}</p>
+                <Button variant="danger" className="m-0 shadow" type="submit" >Terminar compra</Button> 
+            </Form>
 
-            </>     
-        }
-       {/*  <Modal show={showAlert}  onHide={handleClose} className="mt-3">
+            <Modal show={showAlert}  onHide={handleClose} className="mt-3">
             <Alert show={true} variant="primary" className="m-0">
                 <Alert.Heading>¡Compra Terminada!</Alert.Heading>
                     <p>
@@ -177,15 +115,17 @@ const Cart = () => {
                     </p>
                     <hr />
                     <div className="d-flex justify-content-end">
+                    <RouterLink to={`/`}>   
                         <Button variant="outline-primary" onClick={handleClose}>
                             Cerrar
                         </Button>
+                    </RouterLink>
                     </div>
             </Alert>
-        </Modal> */}
-        </div>
-
+        </Modal>
+            
+        </>
     )
 }
 
-export default Cart
+export default CartForm

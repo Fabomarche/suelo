@@ -5,7 +5,7 @@ import { getFirestore } from '../../services/getFirebase'
 
 import LoadingItem from '../Products/LoadingItem'
 
-import { productsFetch } from '../utils/mock'
+/* import { productsFetch } from '../utils/mock' */
 import ItemDetail from '../Products/ItemDetail'
 
 const ItemDetailContainer = () => {

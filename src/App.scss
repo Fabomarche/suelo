@@ -16,6 +16,9 @@ $secondary: #d4d3cd;
 .App {
   font-family: LeHavreRough_Primary_400;
   background-color: $secondary;
+  display: grid;
+  min-height: 100vh;
+  grid-template-rows: auto 1fr auto;
 }
 
 main {
@@ -86,6 +89,17 @@ main {
   font-family: Butler_Medium_Stencil;
   font-size: 1.15rem;
   font-weight: bolder;
+}
+
+footer {
+  font-family: Butler_Medium_Stencil;
+  color: $secondary;
+  background-color: $primary;
+  p {
+    :hover {
+      color: white;
+    }
+  }
 }
 
 /*------------Media Queries------------------------------------------*/
