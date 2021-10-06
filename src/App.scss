@@ -95,7 +95,12 @@ footer {
   font-family: Butler_Medium_Stencil;
   color: $secondary;
   background-color: $primary;
+
   p {
+    a {
+      color: $secondary;
+      transition: 0.75s;
+    }
     :hover {
       color: white;
     }

@@ -8,6 +8,8 @@ export default function CartContextProvider ({children}){
     const [cartList, setCartList] = useState([])
     const [totalToPay, setTotalToPay] = useState(0)
     const [totalItemsQuntity, setTotalItemsQuntity] = useState(0)
+
+    
     
 
     const addToCart = (prodWithCount) => {
@@ -35,6 +37,8 @@ export default function CartContextProvider ({children}){
         setCartList([])
         setTotalItemsQuntity(0)
     }
+
+
 
     return(
         <cartContext.Provider value={{cartList, setCartList, totalToPay, totalItemsQuntity, addToCart, eraseList, removeItem}}>

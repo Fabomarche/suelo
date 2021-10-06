@@ -43,7 +43,7 @@ const ItemCount = ( {stock, initial, onAdd} ) => {
     }
 
     return (
-        <Container className="bg-primary py-3 shadow">
+        <Container className="bg-primary py-3  shadow text-center">
                 {changeBtn ?
                     <Form className="text-center d-inline-block">
                         <h3 className="text-white">Agregue Items</h3>
@@ -56,7 +56,7 @@ const ItemCount = ( {stock, initial, onAdd} ) => {
                     </Form>
                     
                     : <Container>
-                        <h3 className="text-white">¿Cómo seguimos?</h3>
+                        <h3 className="text-white py-3">¿Cómo seguimos?</h3>
                         <RouterLink to='/cart'>
                             <Button variant="secondary" className="my-1 shadow">Ir al carrito</Button>
                         </RouterLink>

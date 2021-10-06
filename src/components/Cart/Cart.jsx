@@ -121,6 +121,7 @@ const Cart = () => {
                     <tr>
                     <th>Cantidad</th>
                     <th>Producto</th>
+                    <th>Stock</th>  
                     <th>Precio unitario</th>
                     <th>Final</th>
                     </tr>
@@ -130,6 +131,7 @@ const Cart = () => {
                     <tr key={itemInCart.id}>
                         <td>{itemInCart.quantity}</td>
                         <td><RouterLink to={`/detalle/${itemInCart.id}`}>{itemInCart.title}</RouterLink></td>
+                        <td>{itemInCart.stock}</td>
                         <td>$ {itemInCart.price}</td>
                         <td>$ {itemInCart.quantity * itemInCart.price}</td>
                         <OverlayTrigger placement="right" delay={{ show: 250, hide: 400 }} overlay={renderTooltip}>
