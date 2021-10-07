@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { UseCartContext } from "../context/cartContext"
 
 import Row from 'react-bootstrap/Row'
 import Container from 'react-bootstrap/Container'
@@ -8,11 +9,12 @@ import Form from 'react-bootstrap/Form'
 import { Link as RouterLink} from 'react-router-dom'
 
 const ItemCount = ( {stock, initial, onAdd} ) => {
-    const [stockCount, setStockCount] = useState(stock)
-    const [cart, setCart] = useState(0)
-
     const [count, setCount] = useState(initial)
     const [changeBtn, setChangeBtn] = useState(true)
+
+    const {setCountQuantity} = UseCartContext()
+
+    
 
     const sum = () => {
         if (count < stock){
@@ -28,16 +30,8 @@ const ItemCount = ( {stock, initial, onAdd} ) => {
         }
     }
 
-    const stockToPrint = () => {  
-        if(stockCount - count >= 0){
-        setStockCount(stockCount - count)
-        setCart(cart + count)
-        setCount(initial)
-        }
-    }
-
     const agregarCarrito = () => {
-        stockToPrint()
+        setCountQuantity(count)
         setChangeBtn(false)
         onAdd(count)
     }

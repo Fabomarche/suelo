@@ -13,7 +13,6 @@ import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 import Alert from 'react-bootstrap/Alert'
 import Modal from 'react-bootstrap/Modal'
-import { Container } from "react-bootstrap"
 
 const CartForm = () => {
     const [formData, setFormData] = useState({name:'', phone:'', email:'', email2:''})
@@ -67,9 +66,7 @@ const CartForm = () => {
                             stock: prod.data().stock - cartList.find(item => item.id === prod.id).quantity
                         })
                     })
-                    batch.commit().then(res => {
-                        console.log('resuultado batch:', res)
-                    })
+                    batch.commit()
                 }) 
 
                 setShowAlert(true)

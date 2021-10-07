@@ -1,3 +1,10 @@
+import { getFirestore } from '../../services/getFirebase'
+import  firebase  from 'firebase'
+import 'firebase/firestore'
+
+const db = getFirestore();
+db.collection
+
 export const products = [
 {
     id: 1,

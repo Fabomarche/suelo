@@ -1,109 +1,26 @@
-import { useState } from "react"
 import { UseCartContext } from "../../context/cartContext"
-
-import { getFirestore } from '../../services/getFirebase'
-import  firebase  from 'firebase'
-import 'firebase/firestore'
 
 import Table from 'react-bootstrap/Table'
 import Button from 'react-bootstrap/Button'
 import CloseButton from 'react-bootstrap/CloseButton'
 import Tooltip from 'react-bootstrap/Tooltip'
 import OverlayTrigger from 'react-bootstrap/OverlayTrigger'
-/* import Form from 'react-bootstrap/Form'
-import Row from 'react-bootstrap/Row'
-import Col from 'react-bootstrap/Col'
-import Alert from 'react-bootstrap/Alert'
-import Modal from 'react-bootstrap/Modal' */
 
 import { Link as RouterLink} from 'react-router-dom'
 
 
 const Cart = () => {
-    const [formData, setFormData] = useState({name:'', phone:'', email:'', email2:''})
-    const [showAlert, setShowAlert] = useState(false)
-    const [idPurchase, setIdPurchase] = useState('')
-    const [showForm, setShowForm] = useState(false)
 
-    const { cartList, totalToPay, removeItem, eraseList } = UseCartContext()
-
-
-/*     const handleOnSubmit = (e) => {
-        e.preventDefault()
-        let purchase = {}
-
-        purchase.date = firebase.firestore.Timestamp.fromDate( new Date() )
-
-        purchase.buyer = formData 
-
-        purchase.total = totalToPay
-
-        purchase.items = cartList.map(cartItem => {
-            return {id: cartItem.id,
-                    title: cartItem.title,
-                    price: cartItem.price * cartItem.quantity   
-                }
-            })
-            
-            if(formData.email !== formData.email2){
-                alert('confirme su email')
-            }else {
-                const db = getFirestore()
-                db.collection('purchases').add(purchase)
-                .then(resp => setIdPurchase(resp.id))
-                .catch(err => console.log(err))
-                .finally(() => {
-                    setFormData({name:'', phone:'', email:'', email2:''})
-                    eraseList(e)
-                })    
-                
-                //Actualizar todos los items del CartList en CartContentext
-                //Filtrar del collection los items en cartList
-                const productsToUpdate = db.collection('products')
-                .where(firebase.firestore.FieldPath.documentId(), 'in', cartList.map(item => item.id))
-                
-                const batch = db.batch() 
-                
-                //restar el stock por cada item
-                productsToUpdate.get()
-                .then( collection => {
-                    collection.docs.forEach(prod => {
-                        batch.update(prod.ref, {
-                            stock: prod.data().stock - cartList.find(item => item.id === prod.id).quantity
-                        })
-                    })
-                    batch.commit().then(res => {
-                        console.log('resuultado batch:', res)
-                    })
-                }) 
-
-                setShowAlert(true)
-            }
-}; */
-        
-    
+    const { cartList, totalToPay, removeItem, eraseList, subItem, sumItem} = UseCartContext()
 
     const renderTooltip = (props) => (
         <Tooltip id="button-tooltip" {...props}>
             Quitar item
         </Tooltip>
     );
-
-   /*  const handleOnChange = (e) => {
-        setFormData({
-            ...formData,
-            [e.target.name]: e.target.value
-        }
-        )
-    }
-
-    const handleClose = () => setShowAlert(false); */
-
-
     
-    //para actualizar data
-    // db.collection('products').doc('id').update({stock: ***}) 
     
+
     return (
         <div className="text-center mt-4">
             {cartList.length === 0 
@@ -128,8 +45,11 @@ const Cart = () => {
                 </thead>
                 <tbody>
                 {cartList.map(itemInCart => 
-                    <tr key={itemInCart.id}>
-                        <td>{itemInCart.quantity}</td>
+                    <tr key={itemInCart.id} >
+                        <td className="h5">
+                            <Button variant="secondary" className="me-2" onClick={(e) => subItem(itemInCart, e)}>-</Button>
+                                {itemInCart.quantity}
+                            <Button variant="secondary" className=" ms-2" onClick={(e) => sumItem(itemInCart, e)}>+</Button></td>
                         <td><RouterLink to={`/detalle/${itemInCart.id}`}>{itemInCart.title}</RouterLink></td>
                         <td>{itemInCart.stock}</td>
                         <td>$ {itemInCart.price}</td>
@@ -151,42 +71,9 @@ const Cart = () => {
             <RouterLink to={`/cartForm`}>        
                 <Button variant="primary" className="m-3 shadow" type="submit">Pagar</Button> 
             </RouterLink>   
-            
-            {/* <Form onChange={handleOnChange} onSubmit={handleOnSubmit}>
-                <Row>
-                    <Col>
-                        <Form.Control required type="text" name="name" placeholder="Nombre y Apellido" defaultValue={formData.name} required/>
-                    </Col>
-                    <Col>
-                        <Form.Control required type="text" name="phone" placeholder="Telefono" defaultValue={formData.phone}/>
-                    </Col>
-                </Row>
-                <Form.Control required type="email" name="email" placeholder="E-mail" defaultValue={formData.email}/>
-                <Form.Control required type="email" name="email2" placeholder="Confirme E-mail" defaultValue={formData.email2}/>
-                <Button variant="primary" className="mt-3 shadow" type="submit" >Terminar compra</Button> 
-            </Form> */}
-
             </>     
-        }
-       {/*  <Modal show={showAlert}  onHide={handleClose} className="mt-3">
-            <Alert show={true} variant="primary" className="m-0">
-                <Alert.Heading>¡Compra Terminada!</Alert.Heading>
-                    <p>
-                        Total abonado: ${totalToPay}
-                    </p>
-                    <p>
-                    Id de compra: {idPurchase}
-                    </p>
-                    <hr />
-                    <div className="d-flex justify-content-end">
-                        <Button variant="outline-primary" onClick={handleClose}>
-                            Cerrar
-                        </Button>
-                    </div>
-            </Alert>
-        </Modal> */}
+            }
         </div>
-
     )
 }
 
