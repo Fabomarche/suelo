@@ -37,7 +37,7 @@ const ItemCount = ( {stock, initial, onAdd} ) => {
     }
 
     return (
-        <Container className="bg-primary py-3  shadow text-center">
+        <Container className="bg-primary pt-3  shadow text-center">
                 {changeBtn ?
                     <Form className="text-center d-inline-block">
                         <h3 className="text-white">Agregue Items</h3>

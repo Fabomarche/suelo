@@ -30,6 +30,8 @@ export default function CartContextProvider ({children}){
         setCartList(cartList.filter(prodToRemove => prodToRemove !== item))
     }
 
+    
+    
     const subItem = (item, e) => {
         e.preventDefault()
         if (item.quantity > 0){

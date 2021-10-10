@@ -50,7 +50,7 @@ const NavBar = () => {
                         <Nav>                         
                             <RouterLink to={'/categoria/frutas'} className="container categorias m-0 text-secondary text-decoration-none">Frutas</RouterLink>
                             <RouterLink to={'/categoria/verduras'} className="container categorias m-0 text-secondary text-decoration-none">Verduras</RouterLink>
-                            <RouterLink to={'/categoria/baker'} className="container categorias m-0 text-secondary text-decoration-none">Bakery</RouterLink>
+                            <RouterLink to={'/categoria/bakery'} className="container categorias m-0 text-secondary text-decoration-none">Bakery</RouterLink>
                             <RouterLink to={'/categoria/conservas'} className="container categorias m-0 text-secondary text-decoration-none">Conservas</RouterLink>
                             <RouterLink to={'/categoria/legumbres'} className="container categorias m-0 text-secondary text-decoration-none">Legumbres</RouterLink>
                         </Nav>

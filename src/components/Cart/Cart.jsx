@@ -47,9 +47,9 @@ const Cart = () => {
                 {cartList.map(itemInCart => 
                     <tr key={itemInCart.id} >
                         <td className="h5">
-                            <Button variant="secondary" className="me-2" onClick={(e) => subItem(itemInCart, e)}>-</Button>
+                            <Button variant="secondary" className="me-2 py-0 border-primary" onClick={(e) => subItem(itemInCart, e)}>-</Button>
                                 {itemInCart.quantity}
-                            <Button variant="secondary" className=" ms-2" onClick={(e) => sumItem(itemInCart, e)}>+</Button></td>
+                            <Button variant="secondary" className=" ms-2 py-0 border-primary" onClick={(e) => sumItem(itemInCart, e)}>+</Button></td>
                         <td><RouterLink to={`/detalle/${itemInCart.id}`}>{itemInCart.title}</RouterLink></td>
                         <td>{itemInCart.stock}</td>
                         <td>$ {itemInCart.price}</td>
@@ -60,8 +60,8 @@ const Cart = () => {
                     </tr>
                 )}
                     <tr>
-                        <td colSpan="3" className="text-end text-danger bg-secondary">Total</td>
-                        <td className="text-danger bg-secondary">$ {totalToPay}</td>
+                        <td colSpan="4" className="text-end text-danger bg-secondary h4">Total</td>
+                        <td className="text-danger bg-secondary h4">$ {totalToPay}</td>
                     </tr>
                 </tbody>
             </Table>

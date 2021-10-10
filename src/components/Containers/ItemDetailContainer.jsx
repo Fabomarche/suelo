@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom'
 
 import { getFirestore } from '../../services/getFirebase'
 
+
 import LoadingItem from '../Products/LoadingItem'
 
 /* import { productsFetch } from '../utils/mock' */

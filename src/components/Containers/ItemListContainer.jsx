@@ -2,8 +2,10 @@ import { useState, useEffect} from 'react'
 import { useParams } from 'react-router-dom'
 
 import { getFirestore } from '../../services/getFirebase'
+import  firebase  from 'firebase'
+import 'firebase/firestore'
 
-/* import { productsFetch } from '../utils/mock' */
+import { products } from '../utils/mock'
 import ItemList from '../Products/ItemList'
 import LoadingItem from '../Products/LoadingItem'
 
@@ -17,9 +19,18 @@ const ItemListContainer = () => {
     const { idCategory } = useParams()
 
     useEffect(() => {
+        
+        const dbQuery = getFirestore()
+        //subir el stock entero acordarde de boorar la collection 
+       /*  products.map(item => {
+            dbQuery.collection('products').add(item)
+            .then(res => console.log(res.id))
+            .catch(err => console.log(err))
+        }) */
 
+
+        
         if(idCategory){
-            const dbQuery = getFirestore()
             dbQuery.collection('products').where('category', '==', idCategory).get()
             .then(resp => {
                 setProductos(resp.docs.map(product => ( {id: product.id, ...product.data()} )) )
@@ -27,7 +38,6 @@ const ItemListContainer = () => {
             .catch(err => console.log(err))
             .finally(() => setLoading(false))
         } else {
-            const dbQuery = getFirestore()
             dbQuery.collection('products').get()
             .then(resp => {
                 setProductos(resp.docs.map(product => ( {id: product.id, ...product.data()} )) )

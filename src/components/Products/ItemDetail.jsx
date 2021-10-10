@@ -26,7 +26,7 @@ const ItemDetail = ({ detalle }) => {
                     </Col>
 
                     <Col className="mt-auto p-0">
-                        <Row className="mb-5 p-3">
+                        <Row className="mb-4 p-3">
                             <Card.Title className="display-5">{detalle.title}</Card.Title>
                             <Card.Text className="detalles-texto text-primary">{detalle.description}</Card.Text>
                             <Card.Text className="font-weight-bolder"> Precio: $ {detalle.price}</Card.Text> 
