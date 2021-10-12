@@ -1,11 +1,13 @@
-import { useState, useEffect} from 'react'
+import { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
+import { UseSearchContext } from '../../context/searchContext'
 
 import { getFirestore } from '../../services/getFirebase'
 import  firebase  from 'firebase'
 import 'firebase/firestore'
 
-import { products } from '../utils/mock'
+
+/* import { products } from '../utils/mock' */
 import ItemList from '../Products/ItemList'
 import LoadingItem from '../Products/LoadingItem'
 
@@ -17,18 +19,19 @@ const ItemListContainer = () => {
     const [productos, setProductos] = useState([])
     const [loading, setLoading] = useState(true)
     const { idCategory } = useParams()
+    const { typing, searchProducts } = UseSearchContext()
 
     useEffect(() => {
         
         const dbQuery = getFirestore()
-        //subir el stock entero acordarde de boorar la collection 
+        //subir el stock entero acordarde de borrar la collection 
        /*  products.map(item => {
             dbQuery.collection('products').add(item)
             .then(res => console.log(res.id))
             .catch(err => console.log(err))
         }) */
 
-
+        console.log(dbQuery)
         
         if(idCategory){
             dbQuery.collection('products').where('category', '==', idCategory).get()
@@ -48,6 +51,10 @@ const ItemListContainer = () => {
 
     
     }, [idCategory])
+
+    /* if (typing !== "") {
+        setProductos(searchProducts)
+    } */
 
     /* useEffect(() => {
 

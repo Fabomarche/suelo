@@ -89,7 +89,7 @@ const CartForm = () => {
             <Form onChange={handleOnChange} onSubmit={handleOnSubmit} className="container text-center py-4 w-75">
                 <Row>
                     <Col>
-                        <Form.Control required type="text" name="name" placeholder="Nombre y Apellido" defaultValue={formData.name} required/>
+                        <Form.Control required type="text" name="name" placeholder="Nombre y Apellido" defaultValue={formData.name}/>
                     </Col>
                     <Col>
                         <Form.Control required type="text" name="phone" placeholder="Telefono" defaultValue={formData.phone}/>

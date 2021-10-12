@@ -3,6 +3,7 @@ import { BrowserRouter, Switch, Route } from "react-router-dom"
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.scss';
 import CartContextProvider from './context/cartContext';
+import SearchContextProvider from "./context/searchContext";
 
 import ItemListContainer from './components/Containers/ItemListContainer';
 import ItemDetailContainer from './components/Containers/ItemDetailContainer';
@@ -15,6 +16,7 @@ import CartForm from "./components/Cart/CartForm";
 function App() {
   return (
     <CartContextProvider>
+    <SearchContextProvider>
       <BrowserRouter>
         <div className="App">
           <header>
@@ -44,6 +46,7 @@ function App() {
           </footer>
         </div>
       </BrowserRouter>
+    </SearchContextProvider>
     </CartContextProvider>  
   );
 }

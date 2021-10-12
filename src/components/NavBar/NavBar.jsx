@@ -1,19 +1,27 @@
-/* import { UseCartContext } from "../../context/cartContext" */
+import { useState, } from 'react'
+import { UseSearchContext } from '../../context/searchContext'
 
 import Navbar from 'react-bootstrap/Navbar'
 import Container from 'react-bootstrap/Container'
 import Nav from 'react-bootstrap/Nav'
 import Form from 'react-bootstrap/Form'
+import Button from 'react-bootstrap/Button'
 
 
 import logoSuelo from '../../assets/images/Logo_Suelo.jpg'
 import CartWidget from './CartWidget'
-import UserWidget from './UserWidget'
+/* import UserWidget from './UserWidget' */
 
 import { Link as RouterLink } from "react-router-dom"
 
 const NavBar = () => {
- /*    const { totalItemsQuntity } = UseCartContext() */
+    const {setTyping, SearchFilter } = UseSearchContext()
+
+    const serchTyping = (e) => {  
+        setTyping(e.target.value)
+        SearchFilter()
+    }
+
 
     return(
         <>
@@ -31,22 +39,23 @@ const NavBar = () => {
 
                     <Container className="col-6 order-last order-md-0 d-flex justify-content-center mb-md-0 mb-2">
                         <Form className="buscar flex-grow-1 shadow" >
-                            <Form.Group >
-                                <Form.Control className="text-center" type="search" placeholder="¿Qué comés hoy?"/>
+                            <Form.Group className="d-flex">
+                                <Form.Control className="text-center me-1" type="search" placeholder="¿Qué comés hoy?" name="Search" onChange={serchTyping}/>
+                                <Button variant="outline-secondary">Buscar</Button>
                             </Form.Group>
                         </Form>
                     </Container>
                     
                     <RouterLink to={"/cart"} className="text-decoration-none"><CartWidget /></RouterLink>
                     
-                    <UserWidget/>
+                    {/* <UserWidget/> */}
                     
                     <Navbar.Toggle aria-controls="basic-navbar-nav" className="text-secondary bg-primary"/>    
 
                 </Container>
                 
                 <Navbar.Collapse id="basic-navbar-nav col-2">
-                    <Container className="justify-content-center border-top border-secondary border-1 border-top border-secondary border-2">
+                    <Container className="justify-content-center border-top border-secondary border-1 border-top border-secondary border-2 py-2">
                         <Nav>                         
                             <RouterLink to={'/categoria/frutas'} className="container categorias m-0 text-secondary text-decoration-none">Frutas</RouterLink>
                             <RouterLink to={'/categoria/verduras'} className="container categorias m-0 text-secondary text-decoration-none">Verduras</RouterLink>
