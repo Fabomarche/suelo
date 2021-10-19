@@ -1,7 +1,7 @@
 # E-commerce Suelo
 
-## Live Demo: [Link a la App en Netlify](https://priceless-lamport-956cf6.netlify.app/
-<a href="https://priceless-lamport-956cf6.netlify.app/" target="_blank">Link a la App en Netlify</a>
+## Live Demo: [Link a la App en Netlify](https://priceless-lamport-956cf6.netlify.app/){:target="_blank"}
+
 Proyecto Final React.js realizado durante la cursada de Front-End React.js en Coder House.
 
 - Duración 7 semanas
