@@ -19,7 +19,7 @@ Características
 - Al ingresar su nombre, apellido, teléfono e e-mail (ingresándolo dos veces para corroborar que sea correcto), debe activarse el botón de ‘realizar compra’.
 - Al clickear ‘realizar compra’ debe guardarse en la base de datos una orden que tenga todos los productos, la fecha y dar feedback del número de orden.
 
-## Funcionalidad Extra
+### Funcionalidad Extra
 
 - Barra buscador de productos por nombre
 
