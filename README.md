@@ -36,10 +36,9 @@ Características
 coderhouse-ecommerce necesita Node.js para correr.
 Installar dependencias, devDependencias y arrancar el servidor.
 
-``
+```
 $ cd coderhouse-ecommerce
 $ npm install
-
-``
+```
 
 Desarrollado por Marchetti Fabricio
