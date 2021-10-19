@@ -1,13 +1,13 @@
-# Ecommerce Suelo
+# E-commerce Suelo
 
 Proyecto Final React.js realizado durante la cursada de Front-End React.js en Coder House.
 
 - Duración 7 semanas
 - 4 Hs semanales
 
-Caracteristicas
+Características
 
-- Desarrollado cin creat-react-app
+- Desarrollado con creat-react-app
 - Se usan librería externas
 - Se cumple con todos los requisitos solicitados para la app + funcionalidad Extra
 
