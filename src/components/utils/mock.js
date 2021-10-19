@@ -168,3 +168,13 @@ setTimeout(() => {
     res(products)
 }, 2000)
 }) */
+
+
+/* useEffect(() => {
+    //subir el stock entero acordarde de borrar la collection 
+    products.map(item => {
+        dbQuery.collection('products').add(item)
+        .then(res => console.log(res.id))
+        .catch(err => console.log(err))
+    }) 
+}) */

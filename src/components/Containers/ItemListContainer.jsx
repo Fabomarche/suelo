@@ -3,31 +3,19 @@ import { useParams } from 'react-router-dom'
 import { UseSearchContext } from '../../context/searchContext'
 
 import { getFirestore } from '../../services/getFirebase'
-import  firebase  from 'firebase'
 import 'firebase/firestore'
 
-
-/* import { products } from '../utils/mock' */
 import ItemList from '../Products/ItemList'
 import LoadingItem from '../Products/LoadingItem'
 
 import Container from 'react-bootstrap/Container'
 
-
-
 const ItemListContainer = () => {
-    /* const [productos, setProductos] = useState([]) */
     const [loading, setLoading] = useState(true)
     const { idCategory } = useParams()
     const { productos, setProductos, setAllProducts } = UseSearchContext()
 
     useEffect(() => {
-        //subir el stock entero acordarde de borrar la collection 
-       /*  products.map(item => {
-            dbQuery.collection('products').add(item)
-            .then(res => console.log(res.id))
-            .catch(err => console.log(err))
-        }) */
         
         const dbQuery = getFirestore()
         
@@ -51,9 +39,6 @@ const ItemListContainer = () => {
         
     }, [idCategory])
     
-
-
-
     return (
         <>
             <Container fluid className="d-flex row justify-content-center m-0 pt-3">

@@ -14,7 +14,7 @@ const CartWidget = () => {
                 {totalItemsQuntity !== 0 && <p className="text-secondary cart-number ms-1 my-0">{totalItemsQuntity}</p>}
             </Container>
             
-            <p className="texto-iconos text-secondary me-4">Carrito</p>
+            <p className="text-iconos text-secondary me-4">Carrito</p>
         
         </Container>
     )

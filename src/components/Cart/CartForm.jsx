@@ -25,13 +25,9 @@ const CartForm = () => {
     const handleOnSubmit = (e) => {
         e.preventDefault()
         let purchase = {}
-
         purchase.date = firebase.firestore.Timestamp.fromDate( new Date() )
-
         purchase.buyer = formData 
-
         purchase.total = totalToPay
-
         purchase.items = cartList.map(cartItem => {
             return {id: cartItem.id,
                     title: cartItem.title,
@@ -77,8 +73,6 @@ const CartForm = () => {
             }
 };
 
-    
-
     const validatePhone = (e) => {
         const regex = /^\d+$/
         if (regex.test(e.target.value)){
@@ -99,15 +93,12 @@ const CartForm = () => {
         } 
         }
 
-
     const handleOnChange = (e) => {
         setFormData({
             ...formData,
             [e.target.name]: e.target.value
-        }
-        )
+        })
     }
-
 
     const handleClose = () => setShowAlert(false);
 
@@ -130,25 +121,24 @@ const CartForm = () => {
             </Form>
 
             <Modal show={showAlert}  onHide={handleClose} className="mt-3">
-            <Alert show={true} variant="secondary" className="m-0 text-center">
-                <Alert.Heading className="h1 text-primary fs-1">¡Compra Terminada!</Alert.Heading>
-                    <p className="fs-1 text-success">
-                        Total abonado: ${totalToPay}
-                    </p>
-                    <p className="text-success fw-bolder">
-                    Id de compra: {idPurchase}
-                    </p>
-                    <hr />
-                    <div className="d-flex justify-content-end">
-                    <RouterLink to={`/`}>   
-                        <Button variant="outline-primary" onClick={handleClose}>
-                            Cerrar
-                        </Button>
-                    </RouterLink>
-                    </div>
-            </Alert>
-        </Modal>
-            
+                <Alert show={true} variant="secondary" className="m-0 text-center">
+                    <Alert.Heading className="h1 text-primary fs-1">¡Compra Terminada!</Alert.Heading>
+                        <p className="fs-1 text-success">
+                            Total abonado: ${totalToPay}
+                        </p>
+                        <p className="text-success fw-bolder">
+                            Id de compra: {idPurchase}
+                        </p>
+                        <hr />
+                        <div className="d-flex justify-content-end">
+                            <RouterLink to={`/`}>   
+                                <Button variant="outline-primary" onClick={handleClose}>
+                                    Cerrar
+                                </Button>
+                            </RouterLink>
+                        </div>
+                </Alert>
+            </Modal>
         </>
     )
 }

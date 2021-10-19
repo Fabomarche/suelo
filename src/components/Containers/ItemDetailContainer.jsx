@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
 import { Link as RouterLink} from 'react-router-dom'
 
@@ -8,17 +8,14 @@ import LoadingItem from '../Products/LoadingItem'
 
 import Button from 'react-bootstrap/Button'
 
-
-/* import { productsFetch } from '../utils/mock' */
 import ItemDetail from '../Products/ItemDetail'
 
 const ItemDetailContainer = () => {
-    const [detalle, setDetalle] = useState({})
+    const [detail, setDetail] = useState({})
     const [loading, setLoading] = useState(true)
     const [condition, setCondition] = useState(true)
     
     const { id } = useParams()
-
 
     useEffect(() => {
         const dbQuery = getFirestore()
@@ -26,21 +23,12 @@ const ItemDetailContainer = () => {
         .then(resp => {
             resp.data() === undefined ? setCondition(false)
                                     :
-                                    setDetalle({id: resp.id, ...resp.data()})
+                                    setDetail({id: resp.id, ...resp.data()})
         })
         .catch(err => console.log(err))
         .finally(() => setLoading(false))
     }, [id])
     
-    
-   /*  useEffect(() => {
-        productsFetch
-        .then(resp => setDetalle(resp.find(item => item.id == id)))
-        .finally(() => setLoading(false))
-    }, []) */
-
-    
-
     return (
         <div className={condition ? 'd-flex justify-content-center' : "d-flex flex-column text-center"} >  
             
@@ -49,7 +37,7 @@ const ItemDetailContainer = () => {
                             <Button variant="primary" className="mt-3 shadow" style={{display: condition && 'none'}}>Volver al inicio</Button>
             </RouterLink>
 
-            { loading ? <LoadingItem /> : <ItemDetail detalle={detalle} condition={condition}/>} 
+            { loading ? <LoadingItem /> : <ItemDetail detail={detail} condition={condition}/>} 
 
             
         </div>

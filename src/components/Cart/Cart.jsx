@@ -8,7 +8,6 @@ import OverlayTrigger from 'react-bootstrap/OverlayTrigger'
 
 import { Link as RouterLink} from 'react-router-dom'
 
-
 const Cart = () => {
 
     const { cartList, totalToPay, removeItem, eraseList, subItem, sumItem} = UseCartContext()
@@ -18,8 +17,6 @@ const Cart = () => {
             Quitar item
         </Tooltip>
     );
-    
-    
 
     return (
         <div className="text-center mt-4">
@@ -51,7 +48,7 @@ const Cart = () => {
                             <Button variant="secondary" className="me-2 py-0 border-primary tableHide" onClick={(e) => subItem(itemInCart, e)}>-</Button>
                                 {itemInCart.quantity}
                             <Button variant="secondary" className=" ms-2 py-0 border-primary tableHide" onClick={(e) => sumItem(itemInCart, e)}>+</Button></td>
-                        <td><RouterLink to={`/detalle/${itemInCart.id}`}>{itemInCart.title}</RouterLink></td>
+                        <td><RouterLink to={`/item/${itemInCart.id}`}>{itemInCart.title}</RouterLink></td>
                         <td className="tableHide">{itemInCart.stock}</td>
                         <td className="tableHide">$ {itemInCart.price}</td>
                         <td>$ {itemInCart.quantity * itemInCart.price}</td>

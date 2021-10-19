@@ -1,8 +1,4 @@
-import { useState, createContext, useContext, useEffect} from 'react'
-
-import { getFirestore } from '../services/getFirebase'
-import  firebase  from 'firebase'
-import 'firebase/firestore'
+import { useState, createContext, useContext} from 'react'
 
 const searchContext = createContext([])
 
@@ -23,7 +19,8 @@ export default function SearchContextProvider ({children}){
     }
 
     return(
-        <searchContext.Provider value={{ typing, productos, setTyping, setAllProducts, setProductos, serch, cleanSearch}}>
+        <searchContext.Provider value={{ typing, productos, 
+                                        setTyping, setAllProducts, setProductos, serch, cleanSearch}}>
             {children}
         </searchContext.Provider>
     )

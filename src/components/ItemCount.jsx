@@ -14,8 +14,6 @@ const ItemCount = ( {stock, initial, onAdd} ) => {
 
     const {setCountQuantity} = UseCartContext()
 
-    
-
     const sum = () => {
         if (count < stock){
             setCount (count + 1)
