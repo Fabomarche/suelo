@@ -9,32 +9,21 @@ const searchContext = createContext([])
 export const UseSearchContext = () => useContext(searchContext)
 
 export default function SearchContextProvider ({children}){
+    const [productos, setProductos] = useState([])
     const [typing, setTyping] = useState("")
-    const [searchProducts, setSearchProducts] = useState([])
+    const [allProducts, setAllProducts] = useState([])
 
-    const SearchFilter = () => {
-        useEffect(() =>{
-            const dbQuery = getFirestore()
-            dbQuery.collection('products').get()
-            .then(resp => {
-                setSearchProducts(resp.docs.map(product => ( {id: product.id, ...product.data()} )) )
-            })
-            .catch(err => console.log(err))
-            .finally(() => {
-                let filterResult = searchProducts.filter( prod => {
-                    if(prod.title.toString().toLowerCase().includes(typing.toLowerCase())
-                    || prod.category.toString().toLowerCase().includes(typing.toLowerCase())){
-                        return prod
-                    }
-                })
-                setSearchProducts(filterResult)
-            })
-        })
+    const serch = (e) => {
+        setProductos(allProducts.filter( prod => prod.title.toLowerCase().includes( typing.toLowerCase() ) ))
+        if(e) if(typing.length === 0) setProductos(allProducts)
     }
-    
+
+    const cleanSearch = (e) => {
+        typing.length === 0 && setProductos(allProducts)
+    }
 
     return(
-        <searchContext.Provider value={{typing, searchProducts, setTyping, SearchFilter}}>
+        <searchContext.Provider value={{ typing, productos, setTyping, setAllProducts, setProductos, serch, cleanSearch}}>
             {children}
         </searchContext.Provider>
     )

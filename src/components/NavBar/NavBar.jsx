@@ -15,20 +15,21 @@ import CartWidget from './CartWidget'
 import { Link as RouterLink } from "react-router-dom"
 
 const NavBar = () => {
-    const {setTyping, SearchFilter } = UseSearchContext()
+    const { setTyping, serch, typing, cleanSearch } = UseSearchContext()
 
     const serchTyping = (e) => {  
         setTyping(e.target.value)
-        SearchFilter()
+        serch(e)
     }
 
 
+    
     return(
         <>
             <Navbar className="flex-column justify-content-center p-0 shadow-lg border-bottom border-white border-2" bg="primary" variant="dark" expand="lg" fixed="top">
                 <Container className="p-0 text-secondary ">
                     <RouterLink to='/'>
-                        <Navbar.Brand className="col-4 col-md-2 d-flex justify-content-center ms-4 ">
+                        <Navbar.Brand className="col-4 col-md-2 d-flex justify-content-center ms-4">
                             <img id="logo-header"
                                 src={logoSuelo} 
                                 width="75"
@@ -37,11 +38,10 @@ const NavBar = () => {
                         </Navbar.Brand>
                     </RouterLink>
 
-                    <Container className="col-6 order-last order-md-0 d-flex justify-content-center mb-md-0 mb-2">
-                        <Form className="buscar flex-grow-1 shadow" >
-                            <Form.Group className="d-flex">
-                                <Form.Control className="text-center me-1" type="search" placeholder="¿Qué comés hoy?" name="Search" onChange={serchTyping}/>
-                                <Button variant="outline-secondary">Buscar</Button>
+                    <Container className="col-6 order-last order-md-0 d-flex justify-content-center mb-md-0 mb-2 flex-grow-1">
+                        <Form className="buscar flex-grow-1 shadow" onChange={serchTyping}>
+                            <Form.Group className="d-flex" >
+                                <Form.Control className="text-center me-1" type="search" placeholder="¿Qué comés hoy?" name="Search" onKeyUp={cleanSearch}/>
                             </Form.Group>
                         </Form>
                     </Container>
@@ -50,18 +50,18 @@ const NavBar = () => {
                     
                     {/* <UserWidget/> */}
                     
-                    <Navbar.Toggle aria-controls="basic-navbar-nav" className="text-secondary bg-primary"/>    
+                    <Navbar.Toggle aria-controls="basic-navbar-nav" className="text-secondary bg-primary me-3"/>    
 
                 </Container>
                 
                 <Navbar.Collapse id="basic-navbar-nav col-2">
                     <Container className="justify-content-center border-top border-secondary border-1 border-top border-secondary border-2 py-2">
                         <Nav>                         
-                            <RouterLink to={'/categoria/frutas'} className="container categorias m-0 text-secondary text-decoration-none">Frutas</RouterLink>
-                            <RouterLink to={'/categoria/verduras'} className="container categorias m-0 text-secondary text-decoration-none">Verduras</RouterLink>
-                            <RouterLink to={'/categoria/bakery'} className="container categorias m-0 text-secondary text-decoration-none">Bakery</RouterLink>
-                            <RouterLink to={'/categoria/conservas'} className="container categorias m-0 text-secondary text-decoration-none">Conservas</RouterLink>
-                            <RouterLink to={'/categoria/legumbres'} className="container categorias m-0 text-secondary text-decoration-none">Legumbres</RouterLink>
+                            <RouterLink to={'/categories/frutas'} className="container categorias m-0 text-secondary text-decoration-none">Frutas</RouterLink>
+                            <RouterLink to={'/categories/verduras'} className="container categorias m-0 text-secondary text-decoration-none">Verduras</RouterLink>
+                            <RouterLink to={'/categories/bakery'} className="container categorias m-0 text-secondary text-decoration-none">Bakery</RouterLink>
+                            <RouterLink to={'/categories/conservas'} className="container categorias m-0 text-secondary text-decoration-none">Conservas</RouterLink>
+                            <RouterLink to={'/categories/legumbres'} className="container categorias m-0 text-secondary text-decoration-none">Legumbres</RouterLink>
                         </Nav>
                     </Container>
                 </Navbar.Collapse>

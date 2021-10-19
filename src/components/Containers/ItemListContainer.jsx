@@ -16,66 +16,42 @@ import Container from 'react-bootstrap/Container'
 
 
 const ItemListContainer = () => {
-    const [productos, setProductos] = useState([])
+    /* const [productos, setProductos] = useState([]) */
     const [loading, setLoading] = useState(true)
     const { idCategory } = useParams()
-    const { typing, searchProducts } = UseSearchContext()
+    const { productos, setProductos, setAllProducts } = UseSearchContext()
 
     useEffect(() => {
-        
-        const dbQuery = getFirestore()
         //subir el stock entero acordarde de borrar la collection 
        /*  products.map(item => {
             dbQuery.collection('products').add(item)
             .then(res => console.log(res.id))
             .catch(err => console.log(err))
         }) */
-
-        console.log(dbQuery)
         
-        if(idCategory){
-            dbQuery.collection('products').where('category', '==', idCategory).get()
-            .then(resp => {
-                setProductos(resp.docs.map(product => ( {id: product.id, ...product.data()} )) )
-            })
-            .catch(err => console.log(err))
-            .finally(() => setLoading(false))
-        } else {
-            dbQuery.collection('products').get()
-            .then(resp => {
-                setProductos(resp.docs.map(product => ( {id: product.id, ...product.data()} )) )
-            })
-            .catch(err => console.log(err))
-            .finally(() => setLoading(false))
-        }
+        const dbQuery = getFirestore()
+        
+        dbQuery.collection('products').get()
+        .then(resp => {
+            setAllProducts(resp.docs.map(product => ( {id: product.id, ...product.data()} )))
+        })
+        .catch(err => console.log(err))
 
-    
+        const ifQuery = idCategory ?
+                        dbQuery.collection('products').where('category', '==', idCategory)
+                        :
+                        dbQuery.collection('products')
+        ifQuery.get()
+        .then(resp => {
+            setProductos(resp.docs.map(product => ( {id: product.id, ...product.data()} )) )
+        })
+        .catch(err => console.log(err))
+        .finally(() => setLoading(false))
+        
+        
     }, [idCategory])
+    
 
-    /* if (typing !== "") {
-        setProductos(searchProducts)
-    } */
-
-    /* useEffect(() => {
-
-        if(idCategory){ 
-            productsFetch
-            .then(respuesta =>{
-                
-                setProductos(respuesta.filter(prod => prod.category === idCategory))
-            })
-            .catch(error => console.log(error))
-            .finally(() => setLoading(false))
-        }else{
-            productsFetch
-            .then(respuesta =>{
-                setProductos(respuesta)
-            })
-            .catch(error => console.log(error))
-            .finally(() => setLoading(false))
-        }
-
-    }, [idCategory]) */
 
 
     return (

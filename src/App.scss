@@ -31,16 +31,15 @@ main {
   }
 }
 
-.userWidget {
-}
-
-.cartWidget {
-}
-
 .texto-iconos {
   font-size: 1rem;
   font-family: Butler_Medium_Stencil;
   text-shadow: 0px 2px 10px rgb(46, 46, 46);
+  transition: 0.5s;
+}
+
+.texto-iconos:hover {
+  color: white !important;
 }
 
 .cart-number {
@@ -52,12 +51,12 @@ main {
 
 .categorias {
   text-shadow: none;
+  transition: 0.5s;
 }
 
 .categorias:hover {
   text-shadow: -2px 5px 2px $dark;
-  transition: 0.5s;
-  background-color: #142935;
+  background-color: #1429356e;
 }
 
 .fade-in {
@@ -91,12 +90,62 @@ main {
   font-weight: bolder;
 }
 
+.banner {
+  width: 80% !important;
+}
+.bannerContainer {
+  width: 100% !important;
+
+  display: flex;
+  justify-content: center;
+}
+
+.whatsapp {
+  position: fixed;
+  top: auto;
+  z-index: 2;
+  bottom: 75px;
+  right: 45px;
+  color: white;
+  background-color: #4dc247;
+  box-shadow: 2px 1px 20px $dark;
+  opacity: 1;
+  border-radius: 50%;
+  transition: 0.5s;
+
+  .whatsappSVG {
+    width: 45px;
+    height: 45px;
+    padding: 5px 2px;
+    fill: white;
+    vertical-align: middle;
+  }
+}
+.whatsapp:hover {
+  box-shadow: none;
+  opacity: 0.8;
+}
+
+.footer-icon {
+  width: 2rem;
+  height: 100%;
+  padding: 5px 2px;
+  fill: $secondary;
+  vertical-align: middle;
+  transition: 1s;
+}
+.footer-icon:hover {
+  fill: white;
+}
+
 footer {
   font-family: Butler_Medium_Stencil;
   color: $secondary;
   background-color: $primary;
 
   p {
+    width: 100%;
+    font-size: 1.1rem;
     a {
       color: $secondary;
       transition: 0.75s;
@@ -113,6 +162,17 @@ footer {
   .buscar {
     input {
       font-size: 0.75rem;
+    }
+  }
+  .tableHide {
+    display: none !important;
+  }
+  .whatsapp {
+    bottom: 50px;
+    right: 10px;
+    .whatsappSVG {
+      width: 35px;
+      height: 35px;
     }
   }
 }

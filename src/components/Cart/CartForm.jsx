@@ -35,7 +35,11 @@ const CartForm = () => {
         purchase.items = cartList.map(cartItem => {
             return {id: cartItem.id,
                     title: cartItem.title,
-                    price: cartItem.price * cartItem.quantity   
+                    price: cartItem.price,
+                    description: cartItem.description, 
+                    quantity: cartItem.quantity,  
+                    totalPrice: cartItem.price * cartItem.quantity,
+                    state: 'generated'
                 }
             })
             
@@ -73,6 +77,29 @@ const CartForm = () => {
             }
 };
 
+    
+
+    const validatePhone = (e) => {
+        const regex = /^\d+$/
+        if (regex.test(e.target.value)){
+            e.target.value = e.target.value
+        } else{
+            (e.target.value = "Solo escribir números")
+            setTimeout(() => e.target.value = "", 2000)
+        } 
+        }
+    
+    const validateName = (e) => {
+        const regex = /^[a-zA-Z "  *"]+$/
+        if (regex.test(e.target.value)){
+            e.target.value = e.target.value
+        } else{
+            (e.target.value = "Solo escribir letras")
+            setTimeout(() => e.target.value = "", 2000)
+        } 
+        }
+
+
     const handleOnChange = (e) => {
         setFormData({
             ...formData,
@@ -80,6 +107,7 @@ const CartForm = () => {
         }
         )
     }
+
 
     const handleClose = () => setShowAlert(false);
 
@@ -89,10 +117,10 @@ const CartForm = () => {
             <Form onChange={handleOnChange} onSubmit={handleOnSubmit} className="container text-center py-4 w-75">
                 <Row>
                     <Col>
-                        <Form.Control required type="text" name="name" placeholder="Nombre y Apellido" defaultValue={formData.name}/>
+                        <Form.Control required onChange={validateName} type="text" name="name" placeholder="Nombre y Apellido" defaultValue={formData.name}/>
                     </Col>
                     <Col>
-                        <Form.Control required type="text" name="phone" placeholder="Telefono" defaultValue={formData.phone}/>
+                        <Form.Control required onChange={validatePhone} type="text" name="phone" placeholder="Telefono" defaultValue={formData.phone}/>
                     </Col>
                 </Row>
                 <Form.Control required type="email" name="email" placeholder="E-mail" defaultValue={formData.email}/>
@@ -102,12 +130,12 @@ const CartForm = () => {
             </Form>
 
             <Modal show={showAlert}  onHide={handleClose} className="mt-3">
-            <Alert show={true} variant="primary" className="m-0">
-                <Alert.Heading>¡Compra Terminada!</Alert.Heading>
-                    <p>
+            <Alert show={true} variant="secondary" className="m-0 text-center">
+                <Alert.Heading className="h1 text-primary fs-1">¡Compra Terminada!</Alert.Heading>
+                    <p className="fs-1 text-success">
                         Total abonado: ${totalToPay}
                     </p>
-                    <p>
+                    <p className="text-success fw-bolder">
                     Id de compra: {idPurchase}
                     </p>
                     <hr />

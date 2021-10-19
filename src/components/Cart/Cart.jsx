@@ -33,26 +33,27 @@ const Cart = () => {
 
             :<>
             <h2 className="text-dark my-4">Produtos en Carrito</h2>
-            <Table striped bordered hover size="sm" className="m-0">
+            <Table responsive striped bordered hover size="sm" className="m-0 ">
                 <thead className="bg-primary text-secondary">
                     <tr>
                     <th>Cantidad</th>
                     <th>Producto</th>
-                    <th>Stock</th>  
-                    <th>Precio unitario</th>
+                    <th className="tableHide">Stock</th>  
+                    <th className="tableHide">Precio unitario</th>
                     <th>Final</th>
+                    <th></th>
                     </tr>
                 </thead>
                 <tbody>
                 {cartList.map(itemInCart => 
                     <tr key={itemInCart.id} >
                         <td className="h5">
-                            <Button variant="secondary" className="me-2 py-0 border-primary" onClick={(e) => subItem(itemInCart, e)}>-</Button>
+                            <Button variant="secondary" className="me-2 py-0 border-primary tableHide" onClick={(e) => subItem(itemInCart, e)}>-</Button>
                                 {itemInCart.quantity}
-                            <Button variant="secondary" className=" ms-2 py-0 border-primary" onClick={(e) => sumItem(itemInCart, e)}>+</Button></td>
+                            <Button variant="secondary" className=" ms-2 py-0 border-primary tableHide" onClick={(e) => sumItem(itemInCart, e)}>+</Button></td>
                         <td><RouterLink to={`/detalle/${itemInCart.id}`}>{itemInCart.title}</RouterLink></td>
-                        <td>{itemInCart.stock}</td>
-                        <td>$ {itemInCart.price}</td>
+                        <td className="tableHide">{itemInCart.stock}</td>
+                        <td className="tableHide">$ {itemInCart.price}</td>
                         <td>$ {itemInCart.quantity * itemInCart.price}</td>
                         <OverlayTrigger placement="right" delay={{ show: 250, hide: 400 }} overlay={renderTooltip}>
                             <td className="bg-dark" ><CloseButton onClick={(e) => removeItem(itemInCart, e)} aria-label="Hide" variant="white"/></td>
@@ -60,7 +61,10 @@ const Cart = () => {
                     </tr>
                 )}
                     <tr>
-                        <td colSpan="4" className="text-end text-danger bg-secondary h4">Total</td>
+                        {window.screen.width <= 576 ?
+                        <td colSpan="1" className="text-end text-danger bg-secondary h4">Total</td>
+                        : <td colSpan="4" className="text-end text-danger bg-secondary h4">Total</td>
+                    }
                         <td className="text-danger bg-secondary h4">$ {totalToPay}</td>
                     </tr>
                 </tbody>
