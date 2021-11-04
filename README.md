@@ -1,6 +1,6 @@
 # E-commerce Suelo
 
-## Live Demo: [Link a la App en Netlify](https://priceless-lamport-956cf6.netlify.app/)
+## Live Demo: [Link a la App en Netlify](https://suelo-mercado-organico.netlify.app/)
 
 Proyecto Final React.js realizado durante la cursada de Front-End React.js en Coder House.
 
