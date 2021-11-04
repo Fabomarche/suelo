@@ -1,13 +1,15 @@
-# Ecommerce Suelo
+# E-commerce Suelo
+
+## Live Demo: [Link a la App en Netlify](https://suelo-mercado-organico.netlify.app/)
 
 Proyecto Final React.js realizado durante la cursada de Front-End React.js en Coder House.
 
 - Duración 7 semanas
 - 4 Hs semanales
 
-Caracteristicas
+Características
 
-- Desarrollado cin creat-react-app
+- Desarrollado con creat-react-app
 - Se usan librería externas
 - Se cumple con todos los requisitos solicitados para la app + funcionalidad Extra
 
@@ -19,7 +21,7 @@ Caracteristicas
 - Al ingresar su nombre, apellido, teléfono e e-mail (ingresándolo dos veces para corroborar que sea correcto), debe activarse el botón de ‘realizar compra’.
 - Al clickear ‘realizar compra’ debe guardarse en la base de datos una orden que tenga todos los productos, la fecha y dar feedback del número de orden.
 
-## Funcionalidad Extra
+### Funcionalidad Extra
 
 - Barra buscador de productos por nombre
 
@@ -36,10 +38,9 @@ Caracteristicas
 coderhouse-ecommerce necesita Node.js para correr.
 Installar dependencias, devDependencias y arrancar el servidor.
 
-``
+```
 $ cd coderhouse-ecommerce
 $ npm install
-
-``
+```
 
 Desarrollado por Marchetti Fabricio
