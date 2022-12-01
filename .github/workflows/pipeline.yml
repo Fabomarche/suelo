@@ -15,7 +15,7 @@ jobs:
       - name: setup-node
         uses: actions/setup-node@v3
         with:
-          node-version: '14.18.1'
+          node-version: '16'
       - name: Install
         run: npm install
       - name: lint
@@ -25,7 +25,7 @@ jobs:
       - name: test
         run: npm test
       - uses: actions/checkout@v2
-      
+
       - name: Deploy
         uses: JamesIves/github-pages-deploy-action@3.7.1
         with:
